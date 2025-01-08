@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://www.sgroup.co.th/img/SG-Logo.png" type="image/x-icon">
+    <title>P_SG เมนูระบบงาน</title>
+</head>
+<style>
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        /* Set full height for body and html */
+        box-sizing: border-box;
+        overflow: hidden;
+        /* Prevent scrollbars */
+    }
+
+    .window {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        /* Full height of the viewport */
+        margin: auto;
+        border: 2px solid #000080;
+        background-color: #e0e0e0;
+        box-sizing: border-box;
+    }
+
+    .title-bar {
+        background-color: #000080;
+        color: white;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .title-bar .title {
+        font-weight: bold;
+    }
+
+    .menu-bar {
+        display: flex;
+        background-color: #e0e0e0;
+        border-bottom: 1px solid #aaa;
+        transition: max-height 0.3s ease;
+        overflow: hidden;
+    }
+
+    .menu-bar button {
+        flex: auto;
+        padding: 8px;
+        background-color: #e0e0e0;
+        border: none;
+        border-right: 1px solid #aaa;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .menu-bar button:hover {
+        background-color: #d0d0d0;
+    }
+
+    .content {
+        flex: 1;
+        /* Take the remaining space */
+        background-color: #d0e8d0;
+        padding: 20px;
+        overflow-y: auto;
+        /* Allow scrolling if content overflows */
+    }
+
+    .content h2 {
+        color: #000080;
+    }
+
+    .content p {
+        margin: 5px 0;
+    }
+
+    .content p.green {
+        color: green;
+    }
+
+    .content p.pink {
+        color: #ff00ff;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        background-color: #e0e0e0;
+        border-top: 1px solid #aaa;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .menu-bar {
+            flex-direction: column;
+            max-height: 0;
+            /* Initially hidden */
+        }
+
+        .menu-bar.active {
+            max-height: 300px;
+            /* Expand menu when active */
+        }
+
+        .hamburger {
+            display: block;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #000080;
+            color: white;
+            text-align: center;
+            border: none;
+        }
+
+        .menu-bar button {
+            text-align: left;
+            border-right: none;
+            border-bottom: 1px solid #aaa;
+        }
+    }
+
+    @media (min-width: 769px) {
+        .hamburger {
+            display: none;
+            /* Hide hamburger for larger screens */
+        }
+    }
+</style>
+</head>
+
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <div class="title">เมนูระบบงาน</div>
+            <div class="buttons">
+                <button onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+        <div class="menu-bar">
+            <button>สินเชื่อ การตลาด</button>
+            <button>บริการลูกหนี้</button>
+            <button>บุคคล ธุรการ</button>
+            <button>การเงิน</button>
+            <button>กิจการสาขา</button>
+            <button>ปฏิบัติการ</button>
+            <button>พนักงาน</button>
+        </div>
+
+        <div class="content">
+            <h2>ข่าวสาร</h2>
+            <a href="https://www.sgroup.co.th/index.html" target="_blank">
+                <p class="green">= กรอกแบบสอบถามข้อมูลพนักงาน เพื่อใช้คำนวณภาษี</p>
+            </a>
+            <a href="https://www.sgroup.co.th/index.html" target="_blank">
+                <p class="pink">= สาระน่ารู้ สามารถดูได้จาก Web ภายในของเรา โดยเปิด Internet Explorer</p>
+            </a>
+        </div>
+
+        <div class="footer">
+            <span id="datetime"></span>
+            <span>ผู้ใช้: <span id="usernameDisplay">[null]</span> => Connecting</span>
+        </div>
+    </div>
+
+    <script>
+        // ฟังก์ชันสำหรับดึงวันที่และเวลาแบบประเทศไทย
+        function updateDateTime() {
+            const options = {
+                timeZone: 'Asia/Bangkok', year: 'numeric', month: '2-digit', day: '2-digit',
+                hour: '2-digit', minute: '2-digit', second: '2-digit'
+            };
+            const now = new Date();
+            const formatter = new Intl.DateTimeFormat('th-TH', options);
+            document.getElementById('datetime').innerText = formatter.format(now);
+        }
+
+        // รับค่าจาก URL (username)
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        document.getElementById('usernameDisplay').innerText = username ? username : '[null] => Connecting';
+
+        // อัปเดตเวลาให้เรียลไทม์ทุกวินาที
+        setInterval(updateDateTime, 1000);
+        updateDateTime(); // เรียกทันทีเมื่อโหลดหน้าเว็บ
+
+        // ฟังก์ชันสำหรับการ logout
+        function logout() {
+            window.location.href = 'login.html'; // ไปยังหน้า login
+        }
+    </script>
+
+</body>
+
+</html>
