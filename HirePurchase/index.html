@@ -1,11 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hire Purchase</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f8ff;
+            border: 1px solid #d3d3d3;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #007BFF;
+        }
+
+        p {
+            font-size: 16px;
+            color: #333333;
+        }
+
+        span {
+            font-weight: bold;
+            color: #007BFF;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <h1>โปรแกรมคำนวณสินเชื่อเช่าซื้อ (Hire Purchase)</h1>
@@ -33,6 +112,56 @@
             <p>ค่าธรรมเนียมเช่าซื้อ: <span id="hirePurchaseFee">0.00</span> บาท</p>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+        document.getElementById("calculateBtn").addEventListener("click", function () {
+            const loanAmount = parseFloat(document.getElementById("loanAmount").value);
+            const months = parseInt(document.getElementById("months").value);
+            const interestRate = parseFloat(document.getElementById("interestRate").value);
+
+            if (isNaN(loanAmount) || isNaN(months) || isNaN(interestRate)) {
+                alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+                return;
+            }
+
+            const VAT_RATE = 0.07;
+
+            // คำนวณยอดกู้ไม่รวม VAT
+            const loanWithoutVAT = parseFloat((loanAmount / (1 + VAT_RATE)).toFixed(2));
+
+            // คำนวณ VAT (ใช้ยอดกู้ไม่รวม VAT)
+            const vat = parseFloat((loanAmount - loanWithoutVAT).toFixed(2));
+
+            // คำนวณดอกเบี้ยรายเดือน
+            const monthlyRate = interestRate / 12 / 100;
+
+            // คำนวณค่างวดไม่รวม VAT
+            const monthlyPaymentWithoutVAT = parseFloat(
+                ((loanWithoutVAT * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months))).toFixed(2)
+            );
+
+            // คำนวณค่างวดรวม VAT (ปัดเป็น 2 ตำแหน่ง)
+            const monthlyPaymentWithVAT = parseFloat((monthlyPaymentWithoutVAT * (1 + VAT_RATE)).toFixed(2));
+
+            // คำนวณยอดรวมที่ต้องจ่ายทั้งหมด
+            const totalPaymentWithVAT = parseFloat((monthlyPaymentWithVAT * months).toFixed(2));
+
+            // คำนวณค่าธรรมเนียมเช่าซื้อ
+            const hirePurchaseFee = parseFloat((totalPaymentWithVAT - loanWithoutVAT).toFixed(2));
+
+            // แสดงผลลัพธ์
+            document.getElementById("loanWithoutVAT").textContent = loanWithoutVAT.toFixed(2);
+            document.getElementById("vat").textContent = vat.toFixed(2);
+            document.getElementById("monthlyPaymentWithoutVAT").textContent = monthlyPaymentWithoutVAT.toFixed(2);
+            document.getElementById("monthlyPaymentWithVAT").textContent = monthlyPaymentWithVAT.toFixed(2);
+            document.getElementById("totalPaymentWithVAT").textContent = totalPaymentWithVAT.toFixed(2);
+            document.getElementById("hirePurchaseFee").textContent = hirePurchaseFee.toFixed(2);
+
+            // คำนวณและแสดงผลค่างวดรวม VAT ในฟอร์แมตที่ต้องการ
+            const checkMonthlyPaymentWithVAT = (monthlyPaymentWithoutVAT * (1 + VAT_RATE)).toFixed(2);
+            document.getElementById("checkMonthlyPaymentWithVAT").textContent = checkMonthlyPaymentWithVAT;
+        });
+
+    </script>
 </body>
+
 </html>
