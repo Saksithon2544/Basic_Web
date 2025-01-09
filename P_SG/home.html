@@ -140,6 +140,7 @@
 <body>
     <div class="window">
         <div class="title-bar">
+            <button class="hamburger">☰</button>
             <div class="title">เมนูระบบงาน</div>
             <div class="buttons">
                 <button onclick="logout()">Logout</button>
@@ -173,6 +174,14 @@
     </div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const hamburger = document.querySelector(".hamburger");
+            const menuBar = document.querySelector(".menu-bar");
+
+            hamburger.addEventListener("click", function () {
+                menuBar.classList.toggle("active");
+            });
+        });
         // ฟังก์ชันสำหรับดึงวันที่และเวลาแบบประเทศไทย
         function updateDateTime() {
             const options = {
