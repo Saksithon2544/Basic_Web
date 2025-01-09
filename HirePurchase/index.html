@@ -110,8 +110,10 @@
             <p>ค่างวดรวม VAT: <span id="monthlyPaymentWithVAT">0.00</span> บาท</p>
             <p>ลูกหนี้เช่าซื้อ: <span id="totalPaymentWithVAT">0.00</span> บาท</p>
             <p>ค่าธรรมเนียมเช่าซื้อ: <span id="hirePurchaseFee">0.00</span> บาท</p>
+            <p>ตรวจสอบค่างวดรวม VAT: <span id="checkMonthlyPaymentWithVAT">0.00</span> บาท</p>
         </div>
     </div>
+
     <script>
         document.getElementById("calculateBtn").addEventListener("click", function () {
             const loanAmount = parseFloat(document.getElementById("loanAmount").value);
@@ -148,19 +150,18 @@
             // คำนวณค่าธรรมเนียมเช่าซื้อ
             const hirePurchaseFee = parseFloat((totalPaymentWithVAT - loanWithoutVAT).toFixed(2));
 
-            // แสดงผลลัพธ์
-            document.getElementById("loanWithoutVAT").textContent = loanWithoutVAT.toFixed(2);
-            document.getElementById("vat").textContent = vat.toFixed(2);
-            document.getElementById("monthlyPaymentWithoutVAT").textContent = monthlyPaymentWithoutVAT.toFixed(2);
-            document.getElementById("monthlyPaymentWithVAT").textContent = monthlyPaymentWithVAT.toFixed(2);
-            document.getElementById("totalPaymentWithVAT").textContent = totalPaymentWithVAT.toFixed(2);
-            document.getElementById("hirePurchaseFee").textContent = hirePurchaseFee.toFixed(2);
+            // แสดงผลลัพธ์ 
+            document.getElementById("loanWithoutVAT").textContent = loanWithoutVAT.toLocaleString();
+            document.getElementById("vat").textContent = vat.toLocaleString();
+            document.getElementById("monthlyPaymentWithoutVAT").textContent = monthlyPaymentWithoutVAT.toLocaleString();
+            document.getElementById("monthlyPaymentWithVAT").textContent = monthlyPaymentWithVAT.toLocaleString();
+            document.getElementById("totalPaymentWithVAT").textContent = totalPaymentWithVAT.toLocaleString();
+            document.getElementById("hirePurchaseFee").textContent = hirePurchaseFee.toLocaleString();
 
-            // คำนวณและแสดงผลค่างวดรวม VAT ในฟอร์แมตที่ต้องการ
+            // คำนวณและแสดงผลค่างวดรวม VAT 
             const checkMonthlyPaymentWithVAT = (monthlyPaymentWithoutVAT * (1 + VAT_RATE)).toFixed(2);
-            document.getElementById("checkMonthlyPaymentWithVAT").textContent = checkMonthlyPaymentWithVAT;
+            document.getElementById("checkMonthlyPaymentWithVAT").textContent = parseFloat(checkMonthlyPaymentWithVAT).toLocaleString();
         });
-
     </script>
 </body>
 
