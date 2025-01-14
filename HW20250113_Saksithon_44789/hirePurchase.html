@@ -38,7 +38,7 @@
             color: #555555;
         }
 
-        input {
+        input, select {
             width: 100%;
             padding: 10px;
             font-size: 16px;
@@ -95,47 +95,51 @@
         </div>
         <div class="form-group">
             <label for="months">จำนวนเดือน (งวด):</label>
-            <input type="number" id="months" placeholder="กรอกจำนวนเดือน" />
-        </div>
-        <div class="form-group">
-            <label for="interestRate">อัตราดอกเบี้ย (% ต่อปี):</label>
-            <input type="number" id="interestRate" placeholder="กรอกอัตราดอกเบี้ย" />
+            <select id="months">
+                <option value="12">12 เดือน</option>
+                <option value="24">24 เดือน</option>
+                <option value="36">36 เดือน</option>
+                <option value="48">48 เดือน</option>
+                <option value="60">60 เดือน</option>
+                <option value="72">72 เดือน</option>
+            </select>
         </div>
         <button id="calculateBtn">คำนวณ</button>
 
         <div class="results">
             <h2>ผลลัพธ์</h2>
-            <p>ยอดกู้ไม่รวม VAT: <span id="loanWithoutVAT">0.00</span> บาท</p>
-            <p>VAT: <span id="vat">0.00</span> บาท</p>
-            <p>ค่างวดไม่รวม VAT: <span id="monthlyPaymentWithoutVAT">0.00</span> บาท</p>
-            <p>ค่างวดรวม VAT: <span id="monthlyPaymentWithVAT">0.00</span> บาท</p>
-            <p>ลูกหนี้เช่าซื้อ: <span id="totalPaymentWithVAT">0.00</span> บาท</p>
-            <p>ค่าธรรมเนียมเช่าซื้อ: <span id="hirePurchaseFee">0.00</span> บาท</p>
-            <p>ตรวจสอบค่างวดรวม VAT: <span id="checkMonthlyPaymentWithVAT">0.00</span> บาท</p>
+            <p>อัตราดอกเบี้ย: <span id="interestRateDisplay">24% ต่อปี</span></p>
+            <p>ค่างวดรวม VAT: <span id="monthlyPaymentWithVAT">0.00</span> บาท ต่อเดือน</p>
+            <p>รวมเป็นยอดเงินรวม VAT ทั้งหมด <span id="totalPayment">0.00</span> บาท</p>
         </div>
+
+        <br>
+        <button onclick="window.location.href='home.html'">กลับไปยังหน้า Home</button>
     </div>
 
     <script>
         document.getElementById("calculateBtn").addEventListener("click", function () {
             const loanAmount = parseFloat(document.getElementById("loanAmount").value);
             const months = parseInt(document.getElementById("months").value);
-            const interestRate = parseFloat(document.getElementById("interestRate").value);
 
-            if (isNaN(loanAmount) || isNaN(months) || isNaN(interestRate)) {
-                alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+            if (isNaN(loanAmount) || loanAmount <= 0 || loanAmount > 500000) {
+                alert("กรุณากรอกยอดเงินกู้ให้ถูกต้อง (ไม่เกิน 500,000 บาท และต้องเป็นค่าบวก)");
+                return;
+            }
+
+            if (![12, 24, 36, 48, 60, 72].includes(months)) {
+                alert("กรุณาเลือกจำนวนเดือนจากตัวเลือกที่มี");
                 return;
             }
 
             const VAT_RATE = 0.07;
+            const INTEREST_RATE = 24; // Fixed interest rate at 24%
 
             // คำนวณยอดกู้ไม่รวม VAT
             const loanWithoutVAT = parseFloat((loanAmount / (1 + VAT_RATE)).toFixed(2));
 
-            // คำนวณ VAT (ใช้ยอดกู้ไม่รวม VAT)
-            const vat = parseFloat((loanAmount - loanWithoutVAT).toFixed(2));
-
             // คำนวณดอกเบี้ยรายเดือน
-            const monthlyRate = interestRate / 12 / 100;
+            const monthlyRate = INTEREST_RATE / 12 / 100;
 
             // คำนวณค่างวดไม่รวม VAT
             const monthlyPaymentWithoutVAT = parseFloat(
@@ -145,23 +149,14 @@
             // คำนวณค่างวดรวม VAT (ปัดเป็น 2 ตำแหน่ง)
             const monthlyPaymentWithVAT = parseFloat((monthlyPaymentWithoutVAT * (1 + VAT_RATE)).toFixed(2));
 
-            // คำนวณยอดรวมที่ต้องจ่ายทั้งหมด
-            const totalPaymentWithVAT = parseFloat((monthlyPaymentWithVAT * months).toFixed(2));
+            // คำนวณยอดเงินรวมทั้งหมด
+            const totalPayment = parseFloat((monthlyPaymentWithVAT * months).toFixed(2));
 
-            // คำนวณค่าธรรมเนียมเช่าซื้อ
-            const hirePurchaseFee = parseFloat((totalPaymentWithVAT - loanWithoutVAT).toFixed(2));
 
-            // แสดงผลลัพธ์ 
-            document.getElementById("loanWithoutVAT").textContent = loanWithoutVAT.toLocaleString();
-            document.getElementById("vat").textContent = vat.toLocaleString();
-            document.getElementById("monthlyPaymentWithoutVAT").textContent = monthlyPaymentWithoutVAT.toLocaleString();
+            // แสดงผลลัพธ์
+            document.getElementById("interestRateDisplay").textContent = INTEREST_RATE + "%";
             document.getElementById("monthlyPaymentWithVAT").textContent = monthlyPaymentWithVAT.toLocaleString();
-            document.getElementById("totalPaymentWithVAT").textContent = totalPaymentWithVAT.toLocaleString();
-            document.getElementById("hirePurchaseFee").textContent = hirePurchaseFee.toLocaleString();
-
-            // คำนวณและแสดงผลค่างวดรวม VAT 
-            const checkMonthlyPaymentWithVAT = (monthlyPaymentWithoutVAT * (1 + VAT_RATE)).toFixed(2);
-            document.getElementById("checkMonthlyPaymentWithVAT").textContent = parseFloat(checkMonthlyPaymentWithVAT).toLocaleString();
+            document.getElementById("totalPayment").textContent = totalPayment.toLocaleString();
         });
     </script>
 </body>
