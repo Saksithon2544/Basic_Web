@@ -93,6 +93,22 @@
             border-top: 1px solid #aaa;
         }
 
+        .error-message {
+            color: red;
+            font-size: 12px;
+        }
+
+        .test-credentials {
+            font-size: 14px;
+            margin-top: 20px;
+            color: #fff;
+            background-color: #ff6347; /* Tomato color for visibility */
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .window {
@@ -115,10 +131,20 @@
         <div class="content">
             <div class="login-form">
                 <h2>กรุณาล็อกอิน</h2>
-                <form id="loginForm" action="home.html" method="GET" onsubmit="return updateUsername()">
+                <div class="test-credentials">
+                    ชื่อผู้ใช้และรหัสผ่านที่ใช้สำหรับทดสอบคือ <b>'admin'</b> และ <b>'1234'</b>
+                </div>
+                
+                <form id="loginForm" action="home.html" method="GET" onsubmit="return validateLogin()">
                     <input type="text" id="username" name="username" placeholder="ชื่อผู้ใช้" required>
-                    <input type="password" name="password" placeholder="รหัสผ่าน" required>
+                    <input type="password" id="password" name="password" placeholder="รหัสผ่าน" required>
+                    <label for="password">แสดง/ซ่อนรหัสผ่าน</label>
+                    <input type="checkbox" onclick="togglePassword()">
+                    <br>
+                    <br>
                     <button type="submit">เข้าสู่ระบบ</button>
+                    <div id="errorMessage" class="error-message"></div>
+                   
                 </form>
             </div>
         </div>
@@ -147,6 +173,28 @@
             const now = new Date();
             const formatter = new Intl.DateTimeFormat('th-TH', options);
             document.getElementById('datetime').innerText = formatter.format(now);
+        }
+
+        // ฟังก์ชันตรวจสอบการเข้าสู่ระบบ
+        function validateLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (username === 'admin' && password === '1234') {
+                errorMessage.innerText = ''; // ลบข้อความผิดพลาด
+                return true;
+            } else {
+                errorMessage.innerText = 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';
+                return false; // ไม่ให้ส่งฟอร์มถ้าข้อมูลไม่ถูกต้อง
+            }
+        }
+
+        // ฟังก์ชันสำหรับเปิด/ปิดการมองเห็นรหัสผ่าน
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const passwordType = passwordField.type === 'password' ? 'text' : 'password';
+            passwordField.type = passwordType;
         }
 
         setInterval(updateDateTime, 1000);
