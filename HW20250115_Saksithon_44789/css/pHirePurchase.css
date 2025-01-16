@@ -90,6 +90,32 @@ input:focus, select:focus {
     transition: background-color 0.3s ease;
 }
 
+.dialog-button-renew {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dialog-button-cancel {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f40000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dialog-button:hover, .dialog-button-renew:hover, .dialog-button-cancel:hover {
+    background-color: #006e25;
+}
+
 .dialog-button:hover {
     background-color: #006e25;
 }

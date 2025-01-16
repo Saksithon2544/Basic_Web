@@ -102,7 +102,16 @@ function calculateLoan() {
                         ค่างวดรายเดือน: ${monthlyInstallment.toLocaleString('th-TH',{ minimumFractionDigits: 2, maximumFractionDigits: 2 })} บาท`;
 
     document.getElementById('dialogContent').innerHTML = resultText;
+    
     document.getElementById('dialogResult').style.display = 'flex';
+
+      // Add event listener for the recalculate button
+      document.getElementById('recalculateBtn').addEventListener('click', function() {
+        // Hide result dialog
+        document.getElementById('dialogResult').style.display = 'none';
+        // Show input form again
+        document.getElementById('dialogOverlay').style.display = 'flex';
+    });
 
     // Close the input dialog
     document.getElementById('dialogOverlay').style.display = 'none';
