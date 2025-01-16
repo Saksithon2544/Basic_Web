@@ -47,7 +47,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                 title: 'Login Successful!',
                 text: 'You will be redirected shortly.',
                 icon: 'success',
-                timer: 2000, // ปิดอัตโนมัติใน 2 วินาที
+                timer: 2000, // 2 seconds
                 showConfirmButton: false
             }).then(() => {
                 window.location.href = './././pages/home.html';
@@ -62,3 +62,45 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         }
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.getElementById("loginForm");
+    const usernameField = document.getElementById("yourUsername");
+    const rememberMeCheckbox = document.getElementById("rememberMe");
+
+    // โหลด username จาก Local Storage
+    const savedUsername = localStorage.getItem("rememberedUsername");
+    if (savedUsername) {
+        usernameField.value = savedUsername;
+        rememberMeCheckbox.checked = true;
+    }
+
+    // เมื่อกด Submit ฟอร์ม
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const username = usernameField.value.trim();
+        if (rememberMeCheckbox.checked) {
+            localStorage.setItem("rememberedUsername", username);
+        } else {
+            localStorage.removeItem("rememberedUsername");
+        }
+
+        // ตรวจสอบ username และ password
+        if (username === "admin" && document.getElementById("yourPassword").value === "12345") {
+            Swal.fire({
+                icon: "success",
+                title: "Login Successful",
+                text: "Welcome back, admin!",
+            });
+        } else if (username !== "" && document.getElementById("yourPassword").value !== "") {
+            Swal.fire({
+                icon: "error",
+                title: "Login Failed",
+                text: "Invalid username or password. Please try again.",
+            });
+        }
+    });
+});
+
