@@ -43,10 +43,22 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         const validPassword = '12345';
 
         if (username === validUsername && password === validPassword) {
-            window.location.href = './././pages/home.html';
-            alert('Login successful.');
+            Swal.fire({
+                title: 'Login Successful!',
+                text: 'You will be redirected shortly.',
+                icon: 'success',
+                timer: 2000, // ปิดอัตโนมัติใน 2 วินาที
+                showConfirmButton: false
+            }).then(() => {
+                window.location.href = './././pages/home.html';
+            });
         } else {
-            alert('Invalid username or password.');
+            Swal.fire({
+                title: 'Login Failed',
+                text: 'Invalid username or password. Please try again.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
         }
     }
 });
