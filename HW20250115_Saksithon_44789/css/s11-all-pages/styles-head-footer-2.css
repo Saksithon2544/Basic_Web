@@ -1,0 +1,242 @@
+@media screen and (max-width: 1390px) {
+    header .ground1 .area1{
+        grid-template-columns: 768px;
+        grid-template-rows: 77px;
+        /* border: 2px solid red; */
+    }
+    header .ground1 .area1 .menu1 {
+        display: grid;      /*ทำให้พื้นที่เมนูอยู่ในกริด*/
+        grid-template-columns: 89px 73px 95px 88px 54px 81px 68px 134px;
+        grid-template-rows: 77px;   /*ใส่ความสูงของกริดให้เท่าพื้นที่area1 */
+        grid-gap: 11px;        /*ความห่างของกริด */
+        justify-content: center;
+    }
+    
+    header .ground1 .area1 .menu1 img {
+        height: 54px;
+        margin-top: 11px;
+        position: relative;
+        right: 4px;
+    }
+    header .ground1 .area1 .menu1 img:hover {
+        height: 56px;
+    }
+    header .ground1 .area1 .menu1 li {
+        padding-top: 38px;
+        margin-bottom: 18px;
+        /* border: 2px solid red; */
+        left: 7px;
+    }
+    header .ground1 .area1 .menu1 .not {     /*ส่วนสีพื้นหลังเมนูสีเขียว*/
+        font-size: 18px;
+        padding: 38px 5px 1px 5px;
+        /* border: 2px solid red; */
+    }  
+    header .ground1 .area1 .menu1 .here {           /* เมนูเกี่ยวกับเราพื้นหลังสีเขียว*/
+        padding: 38px 5px 1px 5px;
+        font-size: 18px;
+    }
+
+/*-----------------เกี่ยวกับเรา--------------------------------------*/
+header .ground1 .area1 .menu1 .drop2:hover a.not {  /*ชีเมนูแล้วหัวข้อใหญ่เป็นสีค้างไว้*/
+    color: #fff;
+    background-color: #55DDC5;
+    padding: 3px;
+    padding: 60px 5px 1px 5px;
+}
+header .ground1 .area1 .menu1 .drop2 {      /*พื้นที่คลุมเมนูที่มีซับเมนู*/
+    position: relative;
+    display: inline-block;
+}
+header .ground1 .area1 .menu1 .sub2 {       /*พื้นหลังเมนูย่อย(ความสูงตำแหน่งพื้นหลังปรับตรงนี้)*/
+    overflow: hidden;
+    position: absolute;
+    height: 0px;
+    opacity: 0.0;
+    width: 290px;
+    top: 66px;
+    left: 9px;
+    transition-delay: 0.3s;
+    transition: 0.3s ease-in-out;
+    background-color: #55DDC5;
+    font-size: 16px;
+    font-family: 'Kanit-Regular.ttf';
+    /* border: 1px solid red; */
+}
+header .ground1 .area1 .menu1 .drop2:hover .sub2 {   /*พื้นหลังเมนูย่อยทำงานเมื่อชี้เมาส์ผ่าน(ทำงานให้ซ้อนพื้นก่อนจะชี้ให้หายไป)*/
+    height: 130px;
+    opacity: 1;
+}
+header .ground1 .area1 .menu1 .drop2 .sub2 a {     /*ตัวอักษรเมนูย่อย*/
+    font-size: 16px;
+    font-family: 'Kanit-Regular.ttf';
+    padding: 10px 30px;
+    text-decoration: none;
+    color: #fff;
+}
+header .ground1 .area1 .menu1 .drop2 .sub2 a:hover {  /*ตัวอักษรเมนูย่อย เมื่อชี้ผ่าน เป็นบล็อคเปลี่ยนขนาดตรงนี้*/
+    background-color: #ffffff37;
+    padding: 10px 30px;
+    font-size: 16px;
+    font-family: 'Kanit-Regular.ttf';
+}
+header .ground1 .area1 .menu1 .subtext {         /*ตัวอักษรเมนูย่อยที่ถูกซ้อนตอนสไลต์ปิด*/
+    font-size: 16px;
+    font-family: 'Kanit-Regular.ttf';
+    padding: 12px 30px;
+    text-decoration: none;
+    color: #fff;
+} 
+header .ground1 .area1 .menu1 pre {              /*จุดตำแหน่งของตัวอักษรเมนูย่อย*/
+    margin-top: 20px;
+    top: -10px;    
+}
+
+    /*-----------------เมนูผลิตภัณฑ์--------------------------------------*/
+    header .ground1 .area1 .menu1 .sub3 {       /*พื้นหลังเมนูย่อย(ความกว้างตำแหน่งพื้นหลังปรับตรงนี้)*/
+        width: 240px;
+        top: 66px;
+        left: 9px;
+    }
+    header .ground1 .area1 .menu1 .drop3:hover .sub3 {   /*พื้นหลังเมนูย่อยทำงานเมื่อชี้เมาส์ผ่าน(ทำงานให้ซ้อนพื้นก่อนจะชี้ให้หายไป)*/
+        height: 88px;
+    }
+    header .ground1 .area1 .menu1 .drop3 .sub3 a {     /*ตัวอักษรเมนูย่อย*/
+        font-size: 16px;
+        padding: 10px 30px;
+    }
+    header .ground1 .area1 .menu1 .drop3 .sub3 a:hover {  /*ตัวอักษรเมนูย่อย เมื่อชี้ผ่าน เป็นบล็อคเปลี่ยนขนาดตรงนี้*/
+        background-color: #ffffff37;
+        padding: 10px 30px;
+        font-size: 16px;
+    }
+    header .ground1 .area1 .menu1 .subtext {         /*ตัวอักษรเมนูย่อยที่ถูกซ้อนตอนสไลต์ปิด*/
+        font-size: 16px;
+        padding: 10px 30px;
+    } 
+    header .ground1 .area1 .menu1 pre {              /*จุดตำแหน่งของตัวอักษรเมนูย่อย*/
+        margin-top: 20px;
+        top:-12px;
+    }
+    
+    /*--------------เมนูลูกค้า----------------------*/
+    header .ground1 .area1 .menu1 .sub4 {       /*พื้นหลังเมนูย่อย(ความกว้างตำแหน่งพื้นหลังปรับตรงนี้)*/
+        width: 340px;
+        top: 66px;
+        left: 8.5px;
+        /* border: 1px solid red; */
+    }
+    header .ground1 .area1 .menu1 .drop4:hover .sub4 {   /*พื้นหลังเมนูย่อยทำงานเมื่อชี้เมาส์ผ่าน(ทำงานให้ซ้อนพื้นก่อนจะชี้ให้หายไป)*/
+        height: 182px;
+    }
+    header .ground1 .area1 .menu1 .drop4 .sub4 a {     /*ตัวอักษรเมนูย่อย*/
+        font-size: 16px;
+        padding: 10px 30px;
+    }
+    header .ground1 .area1 .menu1 .drop4 .sub4 a:hover {  /*ตัวอักษรเมนูย่อย เมื่อชี้ผ่าน เป็นบล็อคเปลี่ยนขนาดตรงนี้*/
+        background-color: #ffffff37;
+        padding: 10px 30px;
+        font-size: 16px;
+    }
+    header .ground1 .area1 .menu1 .subtext {         /*ตัวอักษรเมนูย่อยที่ถูกซ้อนตอนสไลต์ปิด*/
+        font-size: 16px;
+        padding: 10px 30px;
+    } 
+    header .ground1 .area1 .menu1 pre {              /*จุดตำแหน่งของตัวอักษรเมนูย่อย*/
+        margin-top: 20px;  
+        top:-12px;
+    }
+    /*------------------------เมนูข่าวสาร---------------*/
+    header .ground1 .area1 .menu1 .sub5 {       /*พื้นหลังเมนูย่อย(ความกว้างตำแหน่งพื้นหลังปรับตรงนี้)*/
+        width: 240px;
+        top: 66px;
+        left: 8.5px;
+    }
+    header .ground1 .area1 .menu1 .drop5:hover .sub5 {   /*พื้นหลังเมนูย่อยทำงานเมื่อชี้เมาส์ผ่าน(ทำงานให้ซ้อนพื้นก่อนจะชี้ให้หายไป)*/
+        height: 136px;
+    }
+    header .ground1 .area1 .menu1 .drop5 .sub5 a {     /*ตัวอักษรเมนูย่อย*/
+        font-size: 16px;
+        padding: 10px 30px;
+    }
+    header .ground1 .area1 .menu1 .drop5 .sub5 a:hover {  /*ตัวอักษรเมนูย่อย เมื่อชี้ผ่าน เป็นบล็อคเปลี่ยนขนาดตรงนี้*/
+        background-color: #ffffff37;
+        padding: 10px 30px;
+        font-size: 16px;
+    }
+    header .ground1 .area1 .menu1 .subtext {         /*ตัวอักษรเมนูย่อยที่ถูกซ้อนตอนสไลต์ปิด*/
+        font-size: 16px;
+        padding: 10px 30px;
+    } 
+    header .ground1 .area1 .menu1 pre {              /*จุดตำแหน่งของตัวอักษรเมนูย่อย*/
+        margin-top: 20px;  
+        top:-12px;
+    }
+    /*------------เมนูนักลงทุนสัมพันธ์---------------------*/
+    header .ground1 .area1 .menu1 .sub6 {       /*พื้นหลังเมนูย่อย(ความกว้างตำแหน่งพื้นหลังปรับตรงนี้)*/
+        width: 240px;
+        top: 66px;
+        left: 9px;
+    }
+    header .ground1 .area1 .menu1 .drop6:hover .sub6 {   /*พื้นหลังเมนูย่อยทำงานเมื่อชี้เมาส์ผ่าน(ทำงานให้ซ้อนพื้นก่อนจะชี้ให้หายไป)*/
+        height: 180px;
+    }
+    header .ground1 .area1 .menu1 .drop6 .sub6 a {     /*ตัวอักษรเมนูย่อย*/
+        font-size: 16px;
+        padding: 10px 30px;
+    }
+    header .ground1 .area1 .menu1 .drop6 .sub6 a:hover {  /*ตัวอักษรเมนูย่อย เมื่อชี้ผ่าน เป็นบล็อคเปลี่ยนขนาดตรงนี้*/
+        background-color: #ffffff37;
+        padding: 10px 30px;
+        font-size: 16px;
+    }
+    header .ground1 .area1 .menu1 .subtext {         /*ตัวอักษรเมนูย่อยที่ถูกซ้อนตอนสไลต์ปิด*/
+        font-size: 16px;
+        padding: 10px 30px;
+    } 
+    header .ground1 .area1 .menu1 pre {              /*จุดตำแหน่งของตัวอักษรเมนูย่อย*/
+        margin-top: 20px;  
+        top:-12px;
+    }
+
+    main {
+    margin-top: 77px;
+    }
+
+    footer .ground1 {
+        height: 200px;
+    }
+    footer .ground1 .area1{
+        grid-template-columns: 768px;
+    }
+    footer .area1 .grid {
+        grid-template-columns: 1fr 1fr 1fr 320px;
+    }
+    footer .area1 .grid .logo {
+        height: 74px;
+        width: 74px;  
+    }
+    footer .area1 .grid .p1 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    footer .area1 .grid .p2 {
+        font-size: 12px;
+    }
+    footer .area1 .grid .p3 {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+    footer .area1 .grid .apple {
+        height: 24px;
+        width: 83px;
+    }
+    footer .area1 .grid .google {
+        height: 24px;
+        width: 83px;
+
+    }
+    footer .area1 .menu1, footer .area1 .logo, footer .area1 .menu2, footer .area1 .menu3 {
+        margin-top: 16px;
+    }
+}

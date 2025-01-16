@@ -1,0 +1,257 @@
+/*ขนาดมือถือ------------------------------------------360*/
+@media screen and (max-width: 890px) {
+    header .ground1 .area1 {
+        height: 0px;
+        overflow: auto;
+    }
+    header .ground1 .area1 .menu0 {
+        display: none;
+    }
+    header .ground1 .area2 .menu0 {
+        position: relative;
+        right: 230px;
+        top: 5px;
+        z-index: 99;
+        
+    }
+    header .ground1 .area2 .menu0 .solid {
+        font: 22px 'Kanit-Regular.ttf';
+        color: #1492E6;
+        margin: 0px 10px;
+    }
+    header .ground1 .area2 .menu0 a {
+        font: 20px 'Kanit-Regular.ttf';
+        color: #1492E6;
+        margin: 0px 2px;
+    }
+    header .ground1 .area2 {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 890px));
+        grid-template-rows: 77px;
+        overflow: visible;
+        height: 77px;
+    }
+    header .ground1 .area2 .grid {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+    header .ground1 .area2 .material-icons-outlined {   /*ไอคอนเมนู*/
+        font-size: 50px;
+        font-weight: 250;
+        position: relative;
+        top: 15px;
+        left: 5px;
+        color: #55DDC5;
+    }
+    header .ground1 .area2 .sidenav {       /*พื้นที่ด้านข้าง*/
+        height: 100%;
+        width: 0px;
+        position: fixed;
+        z-index: 99;
+        top: 77px;
+        left: 0px;
+        /* opacity: 0.965; */
+        background-color: #fff;
+        overflow-x: hidden;
+        transition: 0.5s;
+        box-shadow: 4px 0px 4px 0px rgba(0,0,0,0.15);
+    }
+    header .menu0 {
+        /* border: 1px solid red; */
+        height: 45px;
+    }
+    header .ground1 .area2 .sidenav .mainside {  /*เมนูที่เป็นลิ้งเลยไม่ย่อย-----------เช่นหน้าแรก---------*/
+        padding: 8px 8px 8px 32px;  /*เว้นขนาดรอบด้านไม่มีเมนูย่อย*/
+        background-color: #fff;
+        height: 45px;
+        text-decoration: none;
+        font-size: 18px;
+        font-family: 'Kanit-Regular.ttf';
+        color: #000000;
+        display: block; /*ทำให้เนื้อหาเรียงในแนวตั้ง*/
+        transition: 0.3s;
+        white-space: nowrap;    /*คำสั่งไม่ให้ตบบรรทัดใหม่เมนูด้านซ้าย*/
+    }
+    header .ground1 .area2 .sidenav .mainside:hover {  /*เมื่อเมาส์ชี้ตัวอักษรเมนูหลัก(ที่ไม่มีตัวเลือก)*/
+        background-color: #55DDC5;
+        color: #fff;
+        height: 45px;
+        padding: 8px 8px 8px 32px;  /*เว้นขนาดรอบด้านไม่มีเมนูย่อย*/
+    }
+    header .ground1 .area2 .sidenav .mainside-here {  /*แสดงพื้นหลังที่เราอยู่หน้านั้นๆ*/
+        padding: 8px 8px 8px 32px;  /*เว้นขนาดรอบด้านไม่มีเมนูย่อย*/
+        height: 45px;
+        text-decoration: none;
+        font-size: 18px;
+        font-family: 'Kanit-Regular.ttf';
+        white-space: nowrap;    /*คำสั่งไม่ให้ตบบรรทัดใหม่*/
+        color: #ffffff;
+        background-color: #55DDC5;       
+        display: block; /*ทำให้เนื้อหาเรียงในแนวตั้ง*/
+        transition: 0.3s;
+    }
+    header .ground1 .area2 .dropdown-btn {   /*หัวเมนูย่อย*/
+        padding: 8px 8px 8px 32px;  /*เว้นขนาดรอบด้านไม่มีเมนูย่อย*/
+        font-family: 'Kanit-Regular.ttf';
+        white-space: nowrap;    /*คำสั่งไม่ให้ตบบรรทัดใหม่*/
+        font-size: 18px;
+        background-color: #fff;
+        text-decoration: none;
+        color: #000000;
+        display: block; /*ทำให้เนื้อหาเรียงในแนวตั้ง*/
+        border: none;
+        background: none;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+        outline: none;
+        height: 45px;
+        overflow: hidden;
+        /* border: 1px solid red; */
+    }
+    
+    header .ground1 .area2 .dropdown-btn:hover  { 
+        background-color: #55DDC5;
+        color: #fff;
+        height: 45px;
+    }
+    
+    header .ground1 .area2 .dropdown-btn:hover span {
+        color: #fff;
+        white-space: nowrap;
+    }
+
+    #dropdown-btn-here {   /*หัวเมนูย่อย*/
+        padding: 8px 8px 8px 32px;  /*เว้นขนาดรอบด้านไม่มีเมนูย่อย*/
+        height: 45px;
+        font-family: 'Kanit-Regular.ttf';
+        font-size: 18px;
+        white-space: nowrap;    /*คำสั่งไม่ให้ตบบรรทัดใหม่*/
+        color: #ffffff;
+        background-color: #55DDC5;
+        display: block; /*ทำให้เนื้อหาเรียงในแนวตั้ง*/
+        border: none;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+        outline: none;
+    }
+
+    header .ground1 .area2 .sidenav .submenu {   /*ส่วนเมนูย่อยที่เป็นลิ้ง*/
+        display: block;
+        font-family: 'Kanit-Regular.ttf';
+        font-size: 16px;
+        white-space: nowrap;    /*คำสั่งไม่ให้ตบบรรทัดใหม่*/
+        text-decoration: none;
+        color: #000000;
+        background-color: #fff;
+        padding: 8px 8px 8px 65px;
+    }
+    header .ground1 .area2 .sidenav .submenu-here {   /*ส่วนเมนูย่อยที่เป็นลิ้ง*/
+        display: block;
+        font-family: 'Kanit-Regular.ttf';
+        white-space: nowrap;    /*คำสั่งไม่ให้ตบบรรทัดใหม่*/
+        font-size: 16px;
+        text-decoration: none;
+        /* background-color: #55DDC5; */
+        color: #55DDC5;
+        /* color: #fff; */
+        padding: 8px 8px 8px 65px;
+    }
+
+    header .ground1 .area2 .sidenav .dropdown-container a:hover {   /*ส่วนเมนูย่อยที่เป็นลิ้ง*/
+        background-color: #55DDC5;
+        color:#fff;
+
+    }
+    header .ground1 .area2 .sidenav span {           /*ไอคอนเมนูย่อย*/
+        color:#000; 
+        font-size: 26px;
+        float: right;
+        position: relative;
+        white-space: nowrap;
+        left: -15px;
+        top: 0.5px
+    }
+
+    header .ground1 .area2 .dropdown-container {    /*คำสั่งซ้อนเมนูย่อยจ้า*/
+        display: none;
+    } 
+    header .ground1 .area2 .sidenav .closebtn {
+        position: absolute;     /*กำหนดพื้นที่ในarea ไอคอนกากะบาดออก*/
+        top: -15px;
+        font-size: 66px;
+        left: 250px;
+    }
+    .hidden {
+        display: none;
+    }
+
+/*--------------ส่วนfooter----------------------------*/
+footer .ground0 #myBtn {
+    right: 10px;
+}
+footer .ground1 {
+    height: 0px;
+    overflow: hidden;
+}
+
+    footer .ground2 {
+        background-color: #55DDC5;
+        height: 390px;
+        
+    }
+    footer .ground2 a {
+        text-decoration: none;
+    }
+    footer .ground2 .area2 {
+        grid-template-columns: 328px;
+        justify-content: center;
+    }
+    footer .area2 .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 110px 140px 110px;
+        /* border: 1px solid rgb(66, 126, 255); */
+    }
+
+    footer .area2 .grid .p1 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        /* border: 1px solid rgb(255, 115, 0); */
+    }
+    footer .area2 .grid .p2 {
+        font-size: 12px;    
+    }
+    footer .area2 .grid .p3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    footer .area2 .grid .apple {
+        position: relative;
+        height: 38px;
+        width: 130px;
+}
+footer .area2 .grid .google {
+        position: relative;
+        height: 38px;
+        width: 130px;
+        left: 10px;
+        
+
+
+
+}
+footer .area2 .menu1, footer .area2 .menu2, footer .area2 .menu3 {
+    padding: 15px 0px;
+    /* border: 3px solid rgb(0, 0, 0); */
+}
+footer .area2 .menu2, footer .area2 .menu3 {
+    /* border-top: 1.7px solid #ffffff5a; */
+    font-size: 12px;  
+}
+footer .area2 .menu3 a {
+    text-decoration: none;
+    color: #fff;
+}
+
+}

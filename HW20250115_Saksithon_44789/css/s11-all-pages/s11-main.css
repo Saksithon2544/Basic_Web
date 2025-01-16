@@ -1,0 +1,791 @@
+@font-face {
+    font-family: 'Kanit-Regular.ttf';
+    src: url('font/Kanit-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    }
+@font-face {
+    font-family: 'Kanit-Bold.ttf';
+    src: url('font/Kanit-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    }
+@font-face {
+    font-family: 'Kanit-SemiBold.ttf';
+    src: url('font/Kanit-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Kanit-Medium.ttf';
+    src: url('font/Kanit-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    }  
+main {
+    overflow-x: hidden;
+}    
+main .ground0 .area1 .menu img {                /*ส่วนของรูปสไลต์ ground0*/
+    vertical-align: middle;
+}
+
+main .ground0 .area1 .slideshow-container {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    }
+
+main .ground0 .area1 .prev {
+    cursor: pointer;
+    position: absolute;
+    top: 1px;
+    width: auto;
+    padding: 17.14% 49.25% 17.14% 16px;
+    margin-top: -53px;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+
+    }
+main .ground0 .area1 .next {
+    cursor: pointer;
+    position: absolute;
+    top: 1px;
+    width: auto;
+    padding: 17.14%  16px 17.14% 49.25%;
+    margin-top: -53px;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    }
+/* Position the "next button" to the right */
+main .ground0 .area1 .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    }
+
+main .ground0 .area1 .prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0);
+    }
+
+/* Number text (1/3 etc) */
+main .ground0 .area1 .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    
+    }
+
+/* The dots/bullets/indicators */
+main .ground0 .area1 .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    }
+
+main .ground0 .area1 .active, .dot:hover {
+    background-color: #717171;
+    }
+
+/* Fading animation */
+main .ground0 .area1 .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    }
+@keyframes fade {
+    from {opacity: .4} to {opacity: 1}
+    }
+main .ground1 {
+    height: 100%;
+    width: 100%;
+}
+main .ground1 .area1{
+    display: grid;
+    grid-template-columns: 1200px;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+main .ground1 .area1 h1{
+    font-family:'Kanit-Regular.ttf';
+    font-size: 25px;
+    padding-left: 225px;
+    padding-bottom: 15px;
+    padding-top: 38px;
+    /* border: 1px solid red; */
+}
+/*---------------เพิ่มผลิตภัณฑ์------------------------------*/
+main .ground1 .area1 .grid{
+    display: grid;
+    grid-template-columns: 350px 350px;
+    grid-template-rows: 350px;
+    grid-gap: 49px;
+    /* margin-top:-15px; */
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+main .ground1 .area1 .grid .item {
+    /* border: 2px solid red; */
+    background-color: #55DDC5;
+    border-radius: 11px;
+    justify-items: center;
+    /* overflow: hidden; */
+}
+main .ground1 .area1 .grid .item:hover {        /*เมื่อเมาส์เลื่อนผ่านกรอบผลิตภัณฑ์*/ 
+    /* border: 2px solid red; */
+    background-color: #55DDC5;
+    border-radius: 11px;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
+}
+main .ground1 .area1 .grid .item .fix {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 11px 11px 0px 0px;
+}
+main .ground1 .area1 .grid .item .fix img {
+    width: 100%;
+    height: 100%;
+    transition: 0.3s ease;      /*เวลาเอฟเฟ็ค*/
+}
+main .ground1 .area1 .grid .item .fix img:hover {    /*เมื่อเมาส์เลื่อนผ่านรูปภาพผลิตภัณฑ์*/ 
+    transform: scale(1.1);   /*ขนาดเมื่อชี้ให้ขยายขึ้น*/
+}
+main .ground1 .area1 .grid .item p {         
+    font-family: 'Kanit-Regular.ttf';
+    font-size: 20px;
+    text-align: center;         
+    color: #fff;
+    margin-top: 15px;
+}
+main .ground1 .area1 .grid .item .go {   /*ส่วนของพื้นที่ */
+    font-family: 'Kanit-Regular.ttf';
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    margin-top: 5px;            /*ตำแหน่งขึ้นลง */
+}
+
+main .ground1 .area1 .grid .item .go a {
+    text-decoration: none;
+    color: #55DDC5;
+    background-color: #fff;
+    border-radius: 55px;
+    padding: 4px 35px;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);
+}
+main .ground1 .area2-1{
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    /* border: 1px solid red; */
+}
+main .ground1 .area2-1 img{
+    width: 100%;
+    margin-top: 80px;
+    /* border: 1px solid red; */
+    margin-bottom: 20px;
+}
+main .ground1 .area2-1 .btn1 {
+    position: relative;
+    right: 183px;
+    bottom: 50px;
+    background-color: #fff;
+    color: #8CCBC0;
+    padding: 6px 30px;
+    border-radius: 45px;
+    text-align: center;       
+    font-family: 'Kanit-Regular.ttf';
+    font-size: 22px;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);
+    text-decoration: none;
+    /* border: 1px solid red; */
+}
+main .ground1 .area2-2 {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+main .ground1 .area2-2 img{
+    width: 50%;
+    margin-top: 25px; 
+}
+main .ground1 .area2-2 .line {
+    width: 1px;
+    position: relative;
+    left: 78px;
+    top: 20px;
+}
+main .ground1 .area2-3 {
+    text-align: center;
+    /* border: 2px solid red;   */
+    height: 105px;
+}
+main .ground1 .area2-3 .apple {  
+    position: relative;
+    height: 65px;
+    width: 220px;
+    top: 13px;
+    right: 8px;
+    /* border: 2px solid red;   */
+}
+main .ground1 .area2-3 .google {
+    /* border: 2px solid red;   */
+    position: relative;
+    height: 65px;
+    width: 220px;
+    top: 13px;
+    left: 8px;            
+}
+main .ground1 .area2-4 {
+    text-align: center;
+    padding: 20px 0px 40px 0px;
+}
+main .ground1 .area2-4 img {
+    height: 100%;
+    width: 60%;
+}
+main .ground2 {
+    background-color: #55DDC5;
+    height: 536px;
+    width: 100%;
+}
+main .ground2 .area1{
+    display: grid;
+    grid-template-columns: 1200px;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+main .ground2 .area1 iframe {
+    margin: 27px 0px;
+}
+main .ground3 {
+    width: 100%;
+    height: 100%;
+}
+main .ground3 .area1{
+    display: grid;
+    grid-template-columns: 1200px;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+main .ground3 .area1-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-family: 'Kanit-Regular.ttf';
+    height: 125px;
+}
+main .ground3 .area1-1 h6 {
+    text-align: left;
+    font-size: 25px;
+    padding: 60px 0px 0px 115px;
+
+}
+main .ground3 .area1-1 p {
+    text-align: right;
+    font-size: 20px;
+    padding: 65px 115px 0px 0px;
+}
+main .ground3 .area1-1 a {
+    text-decoration: none;
+    color: #000;
+}
+main .ground3 .area1-2 .grid{
+    margin-bottom: 125px;
+    display: grid;
+    grid-template-columns: 300px 300px 300px ;
+    grid-template-rows: 400px;
+    grid-gap: 37px;
+    justify-content: center;
+    /* border: 2px solid red; */
+}
+main .ground3 .area1-2 .grid .item {
+    background-color: #55DDC5;
+    border-radius: 10px 10px 10px 10px;
+    /* border: 2px solid rgb(68, 0, 255); */
+}
+main .ground3 .area1-2 .grid .item .fixnews {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px 10px 0px 0px;
+} 
+main .ground3 .area1-2 .grid .item .fixnews img {
+    width: 100%;
+    height:  100%;
+    transition: 0.3s ease;
+}
+main .ground3 .area1-2 .grid .item .fixnews img:hover {
+    transform: scale(1.1);
+}
+main .ground3 .area1-2 .grid .item .p1 {     /*หัวข้อข่าว */      
+    font-family: 'Kanit-Regular.ttf';
+    font-size: 18px;
+    text-align: center;         
+    color: #fff;
+    /* height: 100px; */
+    padding-top: 10px;
+    /* margin-top: 10px; */
+    /* border: 1px solid red */
+
+}
+main .ground3 .area1-2 .grid .item .go {   /*ส่วนของพื้นที่ */
+    font-family: 'Kanit-Regular.ttf';
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0px 10px;
+    padding: 5px 0px 5px 0px;
+    /* border: 2px solid green; */
+}
+main .ground3 .area1-2 .p2 {         /*วันที่*/
+    text-align: left;
+    font-size: 10px;
+    padding: 0px 0px 0px 10px;
+    /* border: 2px solid red; */
+}
+main .ground3 .area1-2 .p3 {         /*อ่านต่อ */
+    text-align: right;
+    font-size: 12px;
+    text-decoration: underline 1px black;
+    padding: 0px 10px 0px 0px;
+    
+    /* border: 2px solid red; */
+}
+main .ground3 .area1-2 a {
+    text-decoration: none;
+    color: #000;
+}
+
+
+
+/*------------------------popupmeeting------------------------------------*/
+
+/*------------------------popupresolution2023------------------------------------*/
+.fullpop {
+    justify-content: center;
+    padding: 5vh 0 100vh 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 1;
+    z-index: 99;
+}
+.backpop {
+    background-color: #00000091;
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 1;
+    height: 100%;
+}
+.popup1 {
+    /* background-color: #0000007e; */
+    /* padding: 60px 10% 100% 10%; */
+    padding: 0 10% 0 10%;
+    z-index: 1;
+}
+.popup1 .container {
+    position: relative;
+    padding: 60px 0 60px 0;
+    background-image: url("img/1/pop-2-01.jpg");
+    background-size: cover;
+    background-color: #1492E6;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+}
+
+
+/*----------------------popupresolution2024---------------------------------*/
+.fullpop {
+justify-content: center;
+padding: 5vh 0 100vh 0;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 1;
+z-index: 99;
+}
+.backpop {
+background-color: #00000091;
+z-index: 0;
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 1;
+height: 100%;
+}
+.popup1 {
+/* background-color: #0000007e; */
+/* padding: 60px 10% 100% 10%; */
+padding: 0 10% 0 10%;
+z-index: 1;
+}
+.popup1 .container {
+position: relative;
+padding: 100px 60px 60px 60px;
+background-image: url("img/1/pop-2-01.jpg");
+background-size: cover;
+background-color: #1492E6;
+width: 100%;
+max-height: 90vh;
+/* border: 1px solid red; */
+overflow: hidden;
+box-shadow: 0px 2px 4px 0px rgba(1, 0, 8, 0.397);
+}
+
+
+@media screen and (max-width: 1390px) {
+
+}
+
+@media screen and (max-width: 890px) {
+    .popup1 .container .box0-1 {
+        position: absolute;
+        width: 60px;
+        /* left: 30px; */
+        display: none;
+
+    }
+    .popup1 .container .box0-1 img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .popup1 .container .box0-2 {
+        width: 100%;
+        position: static;
+        display: block;
+        justify-content: center;
+    }
+    .popup1 .container .box0-2 img {
+        width: 50px;
+        height: 100%;
+        margin-bottom: 20px;
+        
+    }
+}
+/*------------------------popupresolution2023------------------------------------*/
+
+
+@media screen and (max-width: 1390px) {
+main .ground1 {
+    height: 100%;
+    width: 100%;
+}
+main .ground1 .area1{
+    grid-template-columns: 768px;
+}
+main .ground1 .area1 h1{
+    margin: 24px 0px;
+    font-size: 21px;
+    padding: 0px;
+}
+main .ground1 .area1 .grid{
+    grid-template-columns: 368px 368px;
+    grid-template-rows: 325px;
+    grid-gap: 31px;
+}
+main .ground1 .area1 .grid .item .fix {
+height: 260px;
+}
+main .ground1 .area1 .grid .item p {         
+    font-size: 18px;
+    margin-top: 1px;
+}
+main .ground1 .area1 .grid .item .go {
+    font-size: 14px;
+    margin-top: 3px;
+}
+main .ground1 .area1 .grid .item .go a {
+    padding: 2px 22px;
+}
+main .ground1 .area2-1 img{
+    margin-top: 51px;
+}
+main .ground1 .area2-1 .btn1 {
+    right: 120px;
+    bottom: 36px;
+    padding: 2px 22px;
+    border-radius: 45px;     
+    font-size: 14px;
+}
+main .ground1 .area2-3 {
+    text-align: center;
+    height: 61px;
+}
+main .ground1 .area2-3 .apple {  
+    top: 6px;
+    height: 42px;
+    width: 141px;
+
+}
+main .ground1 .area2-3 .google {
+    top: 6px;
+    height: 42px;
+    width: 141px;
+}
+main .ground2 {
+    height: 365px;
+}
+main .ground2 .area1{
+    grid-template-columns: 768px;
+}
+main .ground2 .area1 iframe {
+    margin: 45px 0px;
+    width: 416px;
+    height: 273px;
+}
+main .ground3 .area1{
+    grid-template-columns: 768px;
+}
+main .ground3 .area1-1 {
+    height: 80px;
+}
+main .ground3 .area1-1 h6 {
+    font-size: 18px;
+    margin-top: 24px;
+    padding: 20px 0px 0px 0px;
+}
+main .ground3 .area1-1 p {
+    text-align: right;
+    font-size: 16px;
+    margin-top: 24px;
+    margin-left: 10px;
+    padding: 25px 0px 0px 0px;
+}
+main .ground3 .area1-2 .grid{
+    margin-bottom: 80px;
+    grid-template-columns: 240px 240px 240px ;
+    grid-template-rows: 294px;
+    grid-gap: 24px;
+}
+/*-------------------*/
+main .ground3 .area1-2 .grid .item .fixnews {
+width: 240px;
+height: 211px;
+overflow: hidden;
+border-radius: 10px 10px 0px 0px;
+} 
+main .ground3 .area1-2 .grid .item .fixnews img {
+width: 100%;
+height:  100%;
+transition: 0.3s ease;
+}
+main .ground3 .area1-2 .grid .item .fixnews img:hover {
+transform: scale(1.1);
+}
+/*-------------------*/
+main .ground3 .area1-2 .grid .item .p1 {
+    font-size: 16px;
+    height: 55px;
+}
+main .ground3 .area1-2 .grid .item .go {
+    margin: 0px 4px;
+}
+main .ground3 .area1-2 .p2 {         /*วันที่*/
+    text-align: left;
+    font-size: 12px;
+}
+main .ground3 .area1-2 .p3 {         /*อ่านต่อ */
+    text-align: right;
+    font-size: 12px;
+}
+}
+
+@media screen and (max-width: 798px) {
+/* header .ground1 .area1{
+    grid-template-columns: 328px;
+    grid-template-rows: 42px;
+    border: 2px solid red;
+} */
+/*---ตัวอย่างขนาดเล็ก----------------------------------9/3/2023--*/
+main {
+    margin-top: 77px;
+    width: 100%;
+    overflow: hidden;
+
+}
+main .ground0 .area1 .prev {
+    padding: 12% 41.5% 12% 16px;
+    font-size: 26px;
+    margin-top: 0px;
+    /* border: 1px solid red; */
+    }
+main .ground0 .area1 .next {
+    position: absolute;
+    top: 1px;
+    width: auto;
+    padding: 12%  16px 12% 41.5%;
+    margin-top: 0px;
+    color: white;
+    font-weight: bold;
+    font-size: 26px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    /* border: 1px solid red; */
+    }
+main .ground0 .area1 .dot {
+    display: inline-block;
+}
+main .ground1 {
+    height: 100%;
+    width: 100%;
+}
+main .ground1 .area1{
+    display: grid;
+    grid-template-columns: 328px;
+}
+main .ground1 .area1 h1{
+    margin: 5px 0px;
+}
+/*----------ขนาดกริดส่วนผลิตภัณฑ์----------------*/
+main .ground1 .area1 .grid{
+    grid-template-columns: 328px ;      /*ขนาดเดิมหารแล้ว368 */
+    grid-template-rows: 295px 295px;    /*ขนาดเดิมหารแล้ว224 */
+    grid-gap: 17px;
+    /* border: 1px solid red; */
+}
+main .ground1 .area1 .grid .item {
+    /* border: 1px solid red; */
+    background-color: #55DDC5;
+    border-radius: 6px;
+    /* overflow: hidden; */
+    /* box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.1); */
+}
+main .ground1 .area1 .grid .item:hover {        /*เมื่อเมาส์เลื่อนผ่านกรอบผลิตภัณฑ์*/ 
+    /* border: 2px solid red; */
+    background-color: #55DDC5;
+    border-radius: 6px;
+    /* filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.1)); */
+}
+main .ground1 .area1 .grid .item .fix {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 6px 6px 0px 0px;
+}
+main .ground1 .area1 .grid .item .fix img:hover {    /*เมื่อเมาส์เลื่อนผ่านรูปภาพผลิตภัณฑ์*/ 
+    transform: scale(1.1);   /*ขนาดเมื่อชี้ให้ขยายขึ้น*/
+}
+main .ground1 .area1 .grid .item p {         
+    font-size: 20px;      
+    margin-top: 4px;
+}
+    main .ground1 .area1 .grid .item .go {   /*ส่วนของพื้นที่ */
+    font-size: 14px;
+    margin-top: 6px;            /*ตำแหน่งขึ้นลง */
+}
+    main .ground1 .area1 .grid .item .go a {
+    color: #55DDC5;
+    background-color: #fff;
+    border-radius: 55px;
+    padding: 3px 22px;
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.1);
+}
+/**************************************************************/
+    main .ground1 .area2-1{
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    /* border: 1px solid red; */
+    }
+    main .ground1 .area2-1 .btn1 {
+    right: 120px;
+    bottom: 35px;
+    padding: 2px 22px;
+    border-radius: 45px;     
+    font-size: 14px;
+}
+    main .ground1 .area2-2 {
+    height: 100%;
+    width: 100%;
+}
+    main .ground1 .area2-2 img{
+    width: 50%;
+    margin-top: 25px; 
+}
+    main .ground1 .area2-2 .line {
+    width: 1px;
+    left: 78px;
+    top: 10px;
+}
+/**************************************************************/
+/*-------------------ส่วนยูทู------------------*/
+main .ground2 {
+background-color: #55DDC5;
+height: 405px;
+width: 100%;
+}
+main .ground2 .area1 {
+grid-template-columns: 316px;
+grid-template-rows: 316px;
+
+}
+
+main .ground2 .area1 iframe{
+width: 316px;
+height: 316px;
+/* margin: auto; */
+}
+/* *********************************************************************************************** */
+main .ground3 .area1{
+    display: grid;
+    grid-template-columns: 328px;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+main .ground3 .area1-1 {
+    height: 85px;
+}
+main .ground3 .area1-1 h6 {
+    font-size: 25px;
+    padding: 10px 0px 0px 0px;
+}
+main .ground3 .area1-1 p {
+    font-size: 20px;
+    padding: 15px 0px 0px 0px;
+}
+main .ground3 .area1-2 .grid{
+    grid-template-columns: 328px ;
+    grid-template-rows: 400px 400px 400px;
+    grid-gap: 37px;
+}
+main .ground3 .area1-2 .grid .item .fixnews {
+    width: 100%;
+    height: 300px;
+} 
+main .ground3 .area1-2 .grid .item .go {   /*ส่วนของพื้นที่ */
+    font-family: 'Kanit-Regular.ttf';
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0px 10px;
+    padding: 5px 0px 5px 0px;
+    /* border: 2px solid green; */
+}
+main .ground3 .area1-2 .grid .item .p1 { 
+    height: 70px;
+    font-size: 18px;
+}
+}

@@ -1,0 +1,523 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 1;
+    z-index: 2;
+}
+header .ground1 .area1 {
+    display: grid;
+    grid-template-columns: 1200px;
+    grid-template-rows: 120px;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color:#fff;   
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
+}
+/*-----------------------เมนูขนาดมือถือ---------------------------------*/
+header .ground1 .area2 {
+    display: grid;
+    justify-content: center;
+    height: 0px;
+    overflow: hidden;       /*คำสั่งซ้อนเมนูที่เกินขนาดที่กำหนดไว้*/
+    width: 100%;
+    background-color:#fff;   
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
+}
+header .ground1 .area2 img { /*โลโก้ใหม่*/
+    height: 62px;
+    margin-top: 8px;
+}
+/*------------------------------------------------------------------*/
+header .ground1 .area1 .menu0 {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font: 14px 'Kanit-Regular.ttf';
+    color: #1492E6;
+    z-index: 99;
+}
+header .ground1 .area1 .menu0 a {
+    font: 14px 'Kanit-Regular.ttf';
+    color: #1492E6;
+    margin: 0px 2px;
+}
+header .ground1 .area1 .menu1 {
+    display: flex;
+    justify-content: space-between; /***********เมนูหลักเปลี่ยนใหม่*********/
+    padding-right: 6px;
+}
+
+header .ground1 .area1 .menu1 img {
+    height: 85px;
+    margin-top: 17px;
+    margin-right: 95px;
+}
+header .ground1 .area1 .menu1 img:hover {
+    height: 87px;
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+    transition: 0.3s ease-in-out;
+    margin-right: 93px;
+}
+/*--------------------------------------------------------*/
+header .ground1 .area1 .menu1 li {
+    list-style: none;
+    text-align: center;
+    padding-top: 60px;
+    margin-bottom: 18px;
+    /* border: 2px solid red; */
+    transition: 0.3s ease-in-out;
+    position: relative;
+    left: 7px;
+}
+header .ground1 .area1 .menu1 .not {     /*ส่วนสีพื้นหลังเมนูสีเขียว*/
+    color: #000;
+    font-size: 20px;
+    padding: 60px 5px 1px 5px;
+    font-family: 'Kanit-Regular.ttf';
+    transition: 0.1s ease-in-out;
+    text-decoration: none;
+    /* border: 2px solid red; */
+}
+header .ground1 .area1 .menu1 .not:hover {
+    color: #fff;
+    background-color: #55DDC5;
+}
+/*------------หน้าแรก-------------------------*/
+header .ground1 .area1 .menu1 .here {           /* เมนูเกี่ยวกับเราพื้นหลังสีเขียว*/
+    background-color: #55DDC5;
+    padding: 60px 5px 1px 5px;
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+    text-decoration: none;
+    color: #fff;
+    /* border: 2px solid red; */
+}
+
+
+/*-----------------เกี่ยวกับเรา--------------------------------------*/
+header .ground1 .area1 .menu1 .drop2:hover a.not {  /*ชีเมนูแล้วหัวข้อใหญ่เป็นสีค้างไว้*/
+    color: #fff;
+    background-color: #55DDC5;
+    padding: 3px;
+    padding: 60px 5px 1px 5px;
+    cursor: pointer;
+}
+header .ground1 .area1 .menu1 .drop2 {      /*พื้นที่คลุมเมนูที่มีซับเมนู*/
+    position: relative;
+    display: inline-block;
+}
+header .ground1 .area1 .menu1 .sub2 {       /*พื้นหลังเมนูย่อย(ความสูงตำแหน่งพื้นหลังปรับตรงนี้)*/
+    overflow: hidden;
+    position: absolute;
+    height: 0px;
+    opacity: 0.0;
+    width: 290px;
+    top: 90px;
+    left: 7px;
+    transition-delay: 0.3s;
+    transition: 0.3s ease-in-out;
+    background-color: #55DDC5;
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+    /* border: 1px solid red; */
+}
+header .ground1 .area1 .menu1 .drop2:hover .sub2 {   /*พื้นหลังเมนูย่อยทำงานเมื่อชี้เมาส์ผ่าน(ทำงานให้ซ้อนพื้นก่อนจะชี้ให้หายไป)*/
+    height: 150px;
+    opacity: 1;
+}
+header .ground1 .area1 .menu1 .drop2 .sub2 a {     /*ตัวอักษรเมนูย่อย*/
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+    padding: 10px 30px;
+    text-decoration: none;
+    color: #fff;
+}
+header .ground1 .area1 .menu1 .drop2 .sub2 a:hover {  /*ตัวอักษรเมนูย่อย เมื่อชี้ผ่าน เป็นบล็อคเปลี่ยนขนาดตรงนี้*/
+    background-color: #ffffff37;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+}
+header .ground1 .area1 .menu1 .subtext {         /*ตัวอักษรเมนูย่อยที่ถูกซ้อนตอนสไลต์ปิด*/
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+    padding: 12px 30px;
+    text-decoration: none;
+    color: #fff;
+} 
+header .ground1 .area1 .menu1 pre {              /*จุดตำแหน่งของตัวอักษรเมนูย่อย*/
+    margin-top: 20px;
+    top: -10px;    
+}
+
+
+
+
+/*-----------------เมนูผลิตภัณฑ์--------------------------------------*/
+header .ground1 .area1 .menu1 .drop3:hover a.not {  /*ชีเมนูแล้วหัวข้อใหญ่เป็นสีค้างไว้*/
+    color: #fff;
+    background-color: #55DDC5;
+    padding: 60px 5px 1px 5px;
+    cursor: pointer;
+}
+header .ground1 .area1 .menu1 .drop3 {      /*พื้นที่คลุมเมนูที่มีซับเมนู*/
+    position: relative;
+}
+header .ground1 .area1 .menu1 .sub3 {       /*พื้นหลังเมนูย่อย(ความกว้างตำแหน่งพื้นหลังปรับตรงนี้)*/
+    overflow: hidden;
+    position: absolute;
+    height: 0px;
+    opacity: 0.0;
+    width: 290px;
+    top: 90px;
+    left: 7px;
+    transition-delay: 0.3s;
+    transition: 0.3s ease-in-out;
+    background-color: #55DDC5;
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+}
+header .ground1 .area1 .menu1 .drop3:hover .sub3 {   /*พื้นหลังเมนูย่อยทำงานเมื่อชี้เมาส์ผ่าน(ทำงานให้ซ้อนพื้นก่อนจะชี้ให้หายไป)*/
+    height: 98px;
+    opacity: 1;
+}
+header .ground1 .area1 .menu1 .drop3 .sub3 a {     /*ตัวอักษรเมนูย่อย*/
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+    padding: 10px 30px;
+    text-decoration: none;
+    color: #fff;
+}
+header .ground1 .area1 .menu1 .drop3 .sub3 a:hover {  /*ตัวอักษรเมนูย่อย เมื่อชี้ผ่าน เป็นบล็อคเปลี่ยนขนาดตรงนี้*/
+    background-color: #ffffff37;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+}
+header .ground1 .area1 .menu1 .subtext {         /*ตัวอักษรเมนูย่อยที่ถูกซ้อนตอนสไลต์ปิด*/
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+    padding: 12px 30px;
+    text-decoration: none;
+    color: #fff;
+} 
+header .ground1 .area1 .menu1 pre {              /*จุดตำแหน่งของตัวอักษรเมนูย่อย*/
+    margin-top: 20px;
+    position: relative;
+    top: -10px;    
+}
+
+/*--------------เมนูลูกค้า----------------------*/
+header .ground1 .area1 .menu1 .drop4:hover a.not {  /*ชีเมนูแล้วหัวข้อใหญ่เป็นสีค้างไว้*/
+    color: #fff;
+    background-color: #55DDC5;
+    padding: 3px;
+    padding: 60px 5px 1px 5px;
+    cursor: pointer;
+}
+header .ground1 .area1 .menu1 .drop4 {      /*พื้นที่คลุมเมนูที่มีซับเมนู*/
+    position: relative;
+    display: inline-block;
+}
+header .ground1 .area1 .menu1 .sub4 {       /*พื้นหลังเมนูย่อย(ความกว้างตำแหน่งพื้นหลังปรับตรงนี้)*/
+    overflow: hidden;
+    position: absolute;
+    height: 0px;
+    opacity: 0.0;
+    width: 410px;
+    top: 90px;
+    left: 7px;
+    transition-delay: 0.3s;
+    transition: 0.3s ease-in-out;
+    background-color: #55DDC5;
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+}
+header .ground1 .area1 .menu1 .drop4:hover .sub4 {   /*พื้นหลังเมนูย่อยทำงานเมื่อชี้เมาส์ผ่าน(ทำงานให้ซ้อนพื้นก่อนจะชี้ให้หายไป)*/
+    height: 200px;
+    opacity: 1;
+}
+header .ground1 .area1 .menu1 .drop4 .sub4 a {     /*ตัวอักษรเมนูย่อย*/
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+    padding: 10px 30px;
+    text-decoration: none;
+    color: #fff;
+}
+header .ground1 .area1 .menu1 .drop4 .sub4 a:hover {  /*ตัวอักษรเมนูย่อย เมื่อชี้ผ่าน เป็นบล็อคเปลี่ยนขนาดตรงนี้*/
+    background-color: #ffffff37;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+}
+header .ground1 .area1 .menu1 .subtext {         /*ตัวอักษรเมนูย่อยที่ถูกซ้อนตอนสไลต์ปิด*/
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+    padding: 12px 30px;
+    text-decoration: none;
+    color: #fff;
+} 
+header .ground1 .area1 .menu1 pre {              /*จุดตำแหน่งของตัวอักษรเมนูย่อย*/
+    margin-top: 20px;
+    top: -10px;    
+}
+/*------------------------เมนูข่าวสาร---------------*/
+header .ground1 .area1 .menu1 .drop5:hover a.not {  /*ชีเมนูแล้วหัวข้อใหญ่เป็นสีค้างไว้*/
+    color: #fff;
+    background-color: #55DDC5;
+    padding: 3px;
+    padding: 60px 5px 1px 5px;
+    cursor: pointer;
+}
+header .ground1 .area1 .menu1 .drop5 {      /*พื้นที่คลุมเมนูที่มีซับเมนู*/
+    position: relative;
+    display: inline-block;
+}
+header .ground1 .area1 .menu1 .sub5 {       /*พื้นหลังเมนูย่อย(ความสูงตำแหน่งพื้นหลังปรับตรงนี้)*/
+    overflow: hidden;
+    position: absolute;
+    height: 0px;
+    opacity: 0.0;
+    width: 290px;
+    top: 90px;
+    left: 7px;
+    transition-delay: 0.3s;
+    transition: 0.3s ease-in-out;
+    background-color: #55DDC5;
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+}
+header .ground1 .area1 .menu1 .drop5:hover .sub5 {   /*พื้นหลังเมนูย่อยทำงานเมื่อชี้เมาส์ผ่าน(ทำงานให้ซ้อนพื้นก่อนจะชี้ให้หายไป)*/
+    height: 150px;
+    opacity: 1;
+}
+header .ground1 .area1 .menu1 .drop5 .sub5 a {     /*ตัวอักษรเมนูย่อย*/
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+    padding: 10px 30px;
+    text-decoration: none;
+    color: #fff;
+}
+header .ground1 .area1 .menu1 .drop5 .sub5 a:hover {  /*ตัวอักษรเมนูย่อย เมื่อชี้ผ่าน เป็นบล็อคเปลี่ยนขนาดตรงนี้*/
+    background-color: #ffffff37;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+}
+header .ground1 .area1 .menu1 .subtext {         /*ตัวอักษรเมนูย่อยที่ถูกซ้อนตอนสไลต์ปิด*/
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+    padding: 12px 30px;
+    text-decoration: none;
+    color: #fff;
+} 
+header .ground1 .area1 .menu1 pre {              /*จุดตำแหน่งของตัวอักษรเมนูย่อย*/
+    margin-top: 20px;
+    top: -10px;    
+}
+/*------------เมนูนักลงทุนสัมพันธ์---------------------*/
+header .ground1 .area1 .menu1 .drop6:hover a.not {  /*ชีเมนูแล้วหัวข้อใหญ่เป็นสีค้างไว้*/
+    color: #fff;
+    background-color: #55DDC5;
+    padding: 3px;
+    padding: 60px 5px 1px 5px;
+    cursor: pointer;
+}
+header .ground1 .area1 .menu1 .drop6 {      /*พื้นที่คลุมเมนูที่มีซับเมนู*/
+    position: relative;
+    display: inline-block;
+}
+header .ground1 .area1 .menu1 .sub6 {       /*พื้นหลังเมนูย่อย(ความกว้างตำแหน่งพื้นหลังปรับตรงนี้)*/
+    overflow: hidden;
+    position: absolute;
+    height: 0px;
+    opacity: 0.0;
+    width: 290px;
+    top: 90px;
+    left: 7px;
+    transition-delay: 0.3s;
+    transition: 0.3s ease-in-out;
+    background-color: #55DDC5;
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+}
+header .ground1 .area1 .menu1 .drop6:hover .sub6 {   /*พื้นหลังเมนูย่อยทำงานเมื่อชี้เมาส์ผ่าน(ทำงานให้ซ้อนพื้นก่อนจะชี้ให้หายไป)*/
+    height: 200px;
+    opacity: 1;
+}
+header .ground1 .area1 .menu1 .drop6 .sub6 a {     /*ตัวอักษรเมนูย่อย*/
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+    padding: 10px 30px;
+    text-decoration: none;
+    color: #fff;
+}
+header .ground1 .area1 .menu1 .drop6 .sub6 a:hover {  /*ตัวอักษรเมนูย่อย เมื่อชี้ผ่าน เป็นบล็อคเปลี่ยนขนาดตรงนี้*/
+    background-color: #ffffff37;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+}
+header .ground1 .area1 .menu1 .subtext {         /*ตัวอักษรเมนูย่อยที่ถูกซ้อนตอนสไลต์ปิด*/
+    font-size: 20px;
+    font-family: 'Kanit-Regular.ttf';
+    padding: 12px 30px;
+    text-decoration: none;
+    color: #fff;
+} 
+header .ground1 .area1 .menu1 pre {              /*จุดตำแหน่งของตัวอักษรเมนูย่อย*/
+    margin-top: 20px;
+    top: -10px;    
+}
+/*---------------------------------------*/
+main {
+    margin-top: 120px;
+}
+footer .ground0 #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-family: 'Kanit-Regular.ttf';
+    font-size: 0px;
+    border: none;
+    outline: none;
+    background-color: #55DDC5;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 100%;
+    border: 2px solid #fff;
+    box-shadow: 0  0 4px rgba(0,0,0,0.2);
+    transition: 0.3s ease;
+
+}
+footer .ground0 #myBtn:hover {
+    background-color: #fff;
+    border: 2px solid #55DDC5;
+    color: #55DDC5;
+    }
+/*----------------------------------------------------*/
+footer .ground1 {
+    background-color: #55DDC5;
+    height: 250px;
+}
+footer .ground1 .area1 {
+    display: grid;
+    grid-template-columns: 1200px;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+footer .area1 .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 360px;
+    font-family: 'Kanit-Regular.ttf';
+}
+footer .area1 .grid .logo {
+    height: 123px;
+    width: 123px;  
+}
+footer .area1 .grid .p1 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+footer .area1 .grid .p2 {
+    font-size: 15px;
+    color: #fff;
+}
+footer .area1 .grid a {
+    text-decoration: none;
+}
+footer .area1 .grid .p3 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 22px;
+}
+footer .area1 .grid .apple {
+    position: relative;
+    height: 38px;
+    width: 130px;
+}
+footer .area1 .grid .google {
+    position: relative;
+    height: 38px;
+    width: 130px;
+    top: 5px;
+}
+footer .area1 .menu1, footer .area1 .logo, footer .area1 .menu2, footer .area1 .menu3 {
+    margin-top: 16px;
+}
+footer .area1 .menu3 a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+
+footer .ground2 {
+    background-color: #55DDC5;
+    height: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+footer .ground2 .area2 {
+    display: grid;
+    grid-template-columns: 1200px;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+footer .area2 .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-family: 'Kanit-Regular.ttf';
+}
+
+footer .area2 .grid .p1 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+footer .area2 .grid .p2 {
+    font-size: 15px;
+    color: #fff;
+}
+footer .area2 .grid .p3 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 22px;
+}
+footer .area2 .grid .apple {
+    position: relative;
+    height: 38px;
+    width: 130px;
+}
+footer .area2 .grid .google {
+    position: relative;
+    height: 38px;
+    width: 130px;
+
+}
+
+footer .area2 .menu2 {
+    white-space: nowrap;
+}
+footer .area2 .menu3 a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+
