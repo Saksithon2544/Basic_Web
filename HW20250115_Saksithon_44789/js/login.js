@@ -43,6 +43,10 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         const validPassword = '12345';
 
         if (username === validUsername && password === validPassword) {
+            // Create a token after successful login
+            const token = generateToken(username); // Generate token using the username
+            localStorage.setItem("authToken", token); // Store token in localStorage
+
             Swal.fire({
                 title: 'Login Successful!',
                 text: 'You will be redirected shortly.',
@@ -50,7 +54,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                 timer: 2000, // 2 seconds
                 showConfirmButton: false
             }).then(() => {
-                window.location.href = './././pages/home.html';
+                window.location.href = './././pages/home.html'; // Redirect to home page
             });
         } else {
             Swal.fire({
@@ -62,6 +66,21 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         }
     }
 });
+
+// Function to generate token (example)
+function generateToken(username) {
+    const payload = {
+        username: username,
+        timestamp: new Date().toISOString()
+    };
+
+    // Simple base64 encoding for the token (not for production use)
+    const encodedPayload = btoa(JSON.stringify(payload)); // Encode payload
+
+    // Generate a simple token
+    return `Bearer ${encodedPayload}`;
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const usernameField = document.getElementById("yourUsername");
