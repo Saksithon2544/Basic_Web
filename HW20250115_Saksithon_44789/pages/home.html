@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="./../css/s11-all-pages/styles-head-footer-3.css">
     <link rel="stylesheet" href="./../css/s11-all-pages/s11-main.css">
 
+    <link rel="stylesheet" href="./../css/pHirePurchase.css">
+
+
+
 </head>
 
 <body id="body-pd">
@@ -48,28 +52,31 @@
                 </a>
                 <div class="nav_list">
                     <a href="#" class="nav_link active">
+                        <i class="bx bx-home nav_icon"></i>
+                        <span class="nav_name">Home</span>
+                    </a>
+                    <div class="nav_link dropdown">
                         <i class="bx bx-grid-alt nav_icon"></i>
-                        <span class="nav_name">Dashboard</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class="bx bx-user nav_icon"></i>
-                        <span class="nav_name">Users</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class="bx bx-message-square-detail nav_icon"></i>
-                        <span class="nav_name">Messages</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class="bx bx-bookmark nav_icon"></i>
-                        <span class="nav_name">Bookmark</span>
-                    </a>
+                        <span class="nav_name">Programs <i class="bx bx-chevron-down dropdown_icon"></i></span>
+                        <div class="dropdown_menu">
+                            <a href="#" class="dropdown_item" id="openDialogBtn">
+                                <i class="bx bx-building dropdown_item_icon"></i>
+                                Hire Purchase
+                            </a>
+                            <a href="#" class="dropdown_item">
+                                <i class="bx bx-data dropdown_item_icon"></i>
+                                Program 2
+                            </a>
+                            <a href="#" class="dropdown_item">
+                                <i class="bx bx-paint dropdown_item_icon"></i>
+                                Program 3
+                            </a>
+                        </div>
+                    </div>
+
                     <a href="#" class="nav_link">
                         <i class="bx bx-folder nav_icon"></i>
                         <span class="nav_name">Files</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class="bx bx-bar-chart-alt-2 nav_icon"></i>
-                        <span class="nav_name">Stats</span>
                     </a>
                 </div>
             </div>
@@ -79,6 +86,91 @@
             </a>
         </nav>
     </div>
+
+    <!-- Dialog Program -->
+    <!-- <div id="hirePurchaseDialog" class="dialog">
+        <div class="dialog_content">
+            <span class="close_btn" id="closeDialog">&times;</span>
+            <h1 style="text-align: center;">โปรแกรมคำนวณสินเชื่อเช่าซื้อ <br> (Hire Purchase)</h1>
+            <div class="form-group">
+                <label for="loanAmount">ยอดกู้รวม VAT (บาท):</label>
+                <input type="number" id="loanAmount" placeholder="กรอกยอดเงินกู้" />
+            </div>
+            <div class="form-group">
+                <label for="months">จำนวนเดือน (งวด):</label>
+                <select id="months">
+                    <option value="12">12 เดือน</option>
+                    <option value="24">24 เดือน</option>
+                    <option value="36">36 เดือน</option>
+                    <option value="48">48 เดือน</option>
+                    <option value="60">60 เดือน</option>
+                    <option value="72">72 เดือน</option>
+                </select>
+            </div>
+            <button id="calculateBtn">คำนวณ</button>
+
+            <div class="results">
+                <h2>ผลลัพธ์</h2>
+                <p>อัตราดอกเบี้ย: <span id="interestRateDisplay">24% ต่อปี</span></p>
+                <p>ค่างวดรวม VAT: <span id="monthlyPaymentWithVAT">0.00</span> บาท ต่อเดือน</p>
+                <p>รวมเป็นยอดเงินรวม VAT ทั้งหมด <span id="totalPayment">0.00</span> บาท</p>
+            </div>
+            <button id="closeProgramBtn">ปิดโปรแกรม</button>
+        </div>
+    </div> -->
+
+    <!-- Dialog for loan calculator -->
+    <div id="dialogOverlay" class="dialog-overlay">
+        <div class="dialog-box">
+            <div class="dialog-header">เครื่องคำนวณสินเชื่อ</div>
+            <div>
+                <label for="loanAmountInput">จำนวนเงินกู้ (บาท):</label>
+                <input type="number" id="loanAmountInput" placeholder="กรอกจำนวนเงินกู้"><br><br>
+
+                <label for="installmentMonthsInput">จำนวนงวด (เดือน):</label>
+                <select id="installmentMonthsInput">
+                    <option value="12">12 เดือน</option>
+                    <option value="24">24 เดือน</option>
+                    <option value="36">36 เดือน</option>
+                    <option value="48">48 เดือน</option>
+                    <option value="60">60 เดือน</option>
+                    <option value="72">72 เดือน</option>
+                </select><br><br>
+
+                <label for="loanTypeSelect">ประเภทสินเชื่อ:</label>
+                <select id="loanTypeSelect">
+                    <option value="standard">Standard</option>
+                    <option value="personal">Personal</option>
+                    <option value="custom">Custom</option>
+                </select><br><br>
+
+                <label for="customRateInput">อัตราดอกเบี้ยแบบกำหนดเอง (%):</label>
+                <input type="number" id="customRateInput" placeholder="ใส่เฉพาะเมื่อเลือก Custom"><br><br>
+
+                <label for="downPaymentInput">เงินดาวน์ (บาท):</label>
+                <input type="number" id="downPaymentInput" placeholder="0 ถ้าไม่มี"><br><br>
+
+                <button class="dialog-button" onclick="calculateLoan()">คำนวณ</button>
+            </div>
+
+            <div class="dialog-footer">
+                <button class="dialog-button" id="closeDialogButton">ปิด</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dialog for showing results -->
+    <div id="dialogResult" class="dialog-overlay">
+        <div class="dialog-box">
+            <div class="dialog-header">ผลการคำนวณ</div>
+            <div id="dialogContent" class="dialog-content"></div>
+            <div class="dialog-footer">
+                <button class="dialog-button" id="closeResultDialogButton">ปิด</button>
+            </div>
+        </div>
+    </div>
+
+
 
 
     <!--Container Main start-->
@@ -311,6 +403,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../js/home.js"></script>
     <script src="../js/logout.js"></script>
+    <script src="../js/hirePurchase.js"></script>
 </body>
 
 </html>
