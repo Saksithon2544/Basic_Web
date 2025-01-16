@@ -119,56 +119,56 @@
         </div>
     </div> -->
 
-    <!-- Dialog for loan calculator -->
-    <div id="dialogOverlay" class="dialog-overlay">
-        <div class="dialog-box">
-            <div class="dialog-header">เครื่องคำนวณสินเชื่อ</div>
-            <div>
-                <label for="loanAmountInput">จำนวนเงินกู้ (บาท):</label>
-                <input type="number" id="loanAmountInput" placeholder="กรอกจำนวนเงินกู้"><br><br>
+   <!-- Dialog for loan calculator -->
+<div id="dialogOverlay" class="dialog-overlay">
+    <div class="dialog-box">
+        <div class="dialog-header">เครื่องคำนวณสินเชื่อ</div>
+        <div>
+            <label for="loanAmountInput">จำนวนเงินกู้ (บาท):</label>
+            <input type="number" id="loanAmountInput" placeholder="กรอกจำนวนเงินกู้"><br><br>
 
-                <label for="installmentMonthsInput">จำนวนงวด (เดือน):</label>
-                <select id="installmentMonthsInput">
-                    <option value="12">12 เดือน</option>
-                    <option value="24">24 เดือน</option>
-                    <option value="36">36 เดือน</option>
-                    <option value="48">48 เดือน</option>
-                    <option value="60">60 เดือน</option>
-                    <option value="72">72 เดือน</option>
-                </select><br><br>
+            <label for="installmentMonthsInput">จำนวนงวด (เดือน):</label>
+            <select id="installmentMonthsInput">
+                <option value="12">12 เดือน</option>
+                <option value="24">24 เดือน</option>
+                <option value="36">36 เดือน</option>
+                <option value="48">48 เดือน</option>
+                <option value="60">60 เดือน</option>
+                <option value="72">72 เดือน</option>
+            </select><br><br>
 
-                <label for="loanTypeSelect">ประเภทสินเชื่อ:</label>
-                <select id="loanTypeSelect">
-                    <option value="standard">Standard</option>
-                    <option value="personal">Personal</option>
-                    <option value="custom">Custom</option>
-                </select><br><br>
+            <label for="loanTypeSelect">ประเภทสินเชื่อ:</label>
+            <select id="loanTypeSelect">
+                <option value="custom">Custom</option>
+                <option value="standard">Standard</option>
+                <option value="personal">Personal</option>
+            </select><br><br>
 
-                <label for="customRateInput">อัตราดอกเบี้ยแบบกำหนดเอง (%):</label>
-                <input type="number" id="customRateInput" placeholder="ใส่เฉพาะเมื่อเลือก Custom"><br><br>
+            <label for="customRateInput" id="labelCustomRateInput">อัตราดอกเบี้ยแบบกำหนดเอง (%):</label>
+            <input type="number" id="customRateInput" placeholder="ใส่เฉพาะเมื่อเลือก Custom"><br><br>
 
-                <label for="downPaymentInput">เงินดาวน์ (บาท):</label>
-                <input type="number" id="downPaymentInput" placeholder="0 ถ้าไม่มี"><br><br>
+            <label for="downPaymentInput">เงินดาวน์ (บาท):</label>
+            <input type="number" id="downPaymentInput" placeholder="0 ถ้าไม่มี"><br><br>
 
-                <button class="dialog-button" onclick="calculateLoan()">คำนวณ</button>
-            </div>
+            <button class="dialog-button" onclick="calculateLoan()">คำนวณ</button>
+        </div>
 
-            <div class="dialog-footer">
-                <button class="dialog-button" id="closeDialogButton">ปิด</button>
-            </div>
+        <div class="dialog-footer">
+            <button class="dialog-button" id="closeDialogButton">ปิด</button>
         </div>
     </div>
+</div>
 
-    <!-- Dialog for showing results -->
-    <div id="dialogResult" class="dialog-overlay">
-        <div class="dialog-box">
-            <div class="dialog-header">ผลการคำนวณ</div>
-            <div id="dialogContent" class="dialog-content"></div>
-            <div class="dialog-footer">
-                <button class="dialog-button" id="closeResultDialogButton">ปิด</button>
-            </div>
+<!-- Dialog for showing results -->
+<div id="dialogResult" class="dialog-overlay">
+    <div class="dialog-box">
+        <div class="dialog-header">ผลการคำนวณ</div>
+        <div id="dialogContent" class="dialog-content"></div>
+        <div class="dialog-footer">
+            <button class="dialog-button" id="closeResultDialogButton">ปิด</button>
         </div>
     </div>
+</div>
 
 
 
