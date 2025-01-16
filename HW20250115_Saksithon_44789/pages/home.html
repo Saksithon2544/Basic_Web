@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <!-- SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./../components/navbar/loadNavbar.js"></script>
 
 
 
@@ -31,79 +32,31 @@
 </head>
 
 <body id="body-pd">
-    <header class="header" id="header">
-        <div class="header_toggle">
-            <i class="bx bx-menu" id="header-toggle"></i>
-        </div>
-        <div class="header_img">
-            <img src="../assets/images/profils.webp" alt="" />
-        </div>
-    </header>
-    <div class="l-navbar" id="nav-bar">
-        <nav class="nav">
-            <div>
-                <a href="./home.html" class="nav_logo">
-                    <img src="https://www.sgroup.co.th/img/SG-Logo.png" alt="S11 Group"
-                        class="nav_logo-icon-custom-icon" />
-                    <span class="nav_logo-name">S11 Group</span>
-                </a>
-
-                <div class="nav_list">
-                    <a href="#" class="nav_link active">
-                        <i class="bx bx-grid-alt nav_icon"></i>
-                        <span class="nav_name">Dashboard</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class="bx bx-user nav_icon"></i>
-                        <span class="nav_name">Users</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class="bx bx-message-square-detail nav_icon"></i>
-                        <span class="nav_name">Messages</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class="bx bx-bookmark nav_icon"></i>
-                        <span class="nav_name">Bookmark</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class="bx bx-folder nav_icon"></i>
-                        <span class="nav_name">Files</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class="bx bx-bar-chart-alt-2 nav_icon"></i>
-                        <span class="nav_name">Stats</span>
-                    </a>
-                </div>
-            </div>
-            <a href="#" id="logout" class="nav_link">
-                <i class="bx bx-log-out nav_icon"></i>
-                <span class="nav_name">LogOut</span>
-            </a>
-        </nav>
-    </div>
+    <div id="navbar"></div>
+   
     <!--Container Main start-->
     <div class="bg-light">
         <main>
-            <nav class="ground0">
+            <div class="ground0">
                 <div class="area1">
                     <div class="slideshow-container">
-                        <div class="mySlides fade">
+                        <div class="mySlides">
                             <div class="numbertext">1 / 5</div>
                             <img src="https://www.sgroup.co.th/img/1/banners/Banner_01.png" style="width:100%">
                         </div>
-                        <div class="mySlides fade">
+                        <div class="mySlides">
                             <div class="numbertext">2 / 5</div>
                             <img src="https://www.sgroup.co.th/img/1/banners/Banner_S11X.png" style="width:100%">
                         </div>
-                        <div class="mySlides fade">
+                        <div class="mySlides">
                             <div class="numbertext">3 / 5</div>
                             <img src="https://www.sgroup.co.th/img//1/banners/Banner_02.png" style="width:100%">
                         </div>
-                        <div class="mySlides fade">
+                        <div class="mySlides">
                             <div class="numbertext">4 / 5</div>
                             <img src="https://www.sgroup.co.th/img//1/banners/Banner_04-1.png" style="width:100%">
                         </div>
-                        <div class="mySlides fade">
+                        <div class="mySlides">
                             <div class="numbertext">5 / 5</div>
                             <img src="https://www.sgroup.co.th/img//1/banners/Banner_Green-Biz.png" style="width:100%">
                         </div>
@@ -149,8 +102,8 @@
                         }
                     </script>
                 </div>
-            </nav>
-            <nav class="ground1">
+            </div>
+            <div class="ground1">
                 <div class="area1">
                     <h1>ผลิตภัณฑ์</h1>
                     <div class="grid">
@@ -192,17 +145,16 @@
                                 src="https://www.sgroup.co.th/img/1/QR%20Link.png" alt=""></a>
                     </div>
                 </div>
-            </nav>
-            <nav class="ground2">
+            </div>
+            <div class="ground2">
                 <div class="area1">
                     <iframe width="476" height="476" src="https://www.youtube.com/embed/LpAiguSqGLA"
                         title="วิธีการชำระค่างวดรถด้วย QR Code ผ่านแอปพลิเคชัน S11X" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
-
                 </div>
-            </nav>
-            <nav class="ground3">
+            </div>
+            <div class="ground3">
                 <div class="area1">
                     <div class="area1-1">
                         <h6>ข่าวสาร</h6>
@@ -249,28 +201,28 @@
                         </div>
                     </div>
                 </div>
-            </nav>
+            </div>
         </main>
         <footer>
             <menu-footer-custom>
-                <nav class="ground0">
+                <div class="ground0">
                     <button onclick="topFunction()" id="myBtn" title="เลื่อนขึ้นบน" style="display: block;"><span
                             class="material-icons">north</span></button>
-                </nav>
-                <nav class="ground1">
+                </div>
+                <div class="ground1">
                     <div class="area1">
                         <div class="grid">
                             <a href="index.html"><img class="logo" src="https://www.sgroup.co.th/img/SG-Logo.png"
                                     alt="logo"></a>
                             <div class="menu1">
                                 <p class="p3">ผลิตภัณฑ์</p>
-                                <a href="product-motorcycle-loan.html">
+                                <a href="https://www.sgroup.co.th/product-motorcycle-loan.html" target="_blank">
                                     <p class="p2">สินเชื่อเช่าซื้อรถจักรยานยนต์</p>
                                 </a>
-                                <a href="persoloan.html">
+                                <a href="https://www.sgroup.co.th/persoloan.html" target="_blank">
                                     <p class="p2">สินเชื่อส่วนบุคคล</p>
                                 </a>
-                                <a href="disclosure.html">
+                                <a href="https://www.sgroup.co.th/disclosure.html" target="_blank">
                                     <p class="p2">การเปิดเผยข้อมูล</p>
                                 </a>
                             </div>
@@ -296,51 +248,19 @@
                             </div>
                         </div>
                     </div>
-                </nav>
+                </div>
             </menu-footer-custom>
-            <menu-footer-custom-phone>
-                <nav class="ground2">
-                    <div class="area2">
-                        <div class="grid">
-                            <div class="menu1">
-                                <p class="p3">ผลิตภัณฑ์</p>
-                                <a href="product-motorcycle-loan.html">
-                                    <p class="p2">สินเชื่อเช่าซื้อรถจักรยานยนต์</p>
-                                </a>
-                                <a href="persoloan.html">
-                                    <p class="p2">สินเชื่อส่วนบุคคล</p>
-                                </a>
-                                <a href="disclosure.html">
-                                    <p class="p2">การเปิดเผยข้อมูล</p>
-                                </a>
-                            </div>
-                            <div class="menu3">
-                                <p class="p3">ติดต่อเรา</p>
-                                <p class="p2">สำนักงานใหญ่</p>
-                                <p class="p2">บริษัท เอส 11 กรุ๊ป จำกัด (มหาชน)
-                                </p>
-                                <p class="p2">888 ซ.จตุโชติ 10 ถ.จตุโชติ แขวงออเงิน เขตสายไหม<br>กรุงเทพมหานคร 10220
-                                </p>
-                                <p class="p2"><a href="tel:02-022-8888">โทร. 02-022-8888</a></p>
-                            </div>
-                            <div class="menu2">
-                                <p class="p1">ดาวน์โหลด S11X</p>
-                                <div>
-                                    <a target="_blank" href="https://apps.apple.com/th/app/s11-x/id1542009136?l=th"><img
-                                            class="apple" src="https://www.sgroup.co.th/img/1App%20store.png"></a>
-                                    <a target="_blank"
-                                        href="https://play.google.com/store/apps/details?id=com.s11.x&amp;hl=th"><img
-                                            class="google" src="https://www.sgroup.co.th/img/Play%20store1-1.png"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </menu-footer-custom-phone>
         </footer>
 
     </div>
     <!--Container Main end-->
+
+
+
+    <!-- import script -->
+    <script>
+        loadHTML('#navbar', './../components/navbar/navbar.html');
+    </script>
 
     <script src="./../js/all-pages/menuhtml.js"></script>
     <script src="./../js/all-pages/button-slide-up.js"></script>
