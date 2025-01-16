@@ -5,8 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
     logoutButton.addEventListener("click", (e) => {
         e.preventDefault();
 
-        localStorage.removeItem("authToken");
-
-        window.location.href = "../index.html"; 
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You will be logged out!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: 'red',
+            confirmButtonText: 'Yes, logout',
+            cancelButtonText: 'Cancel'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = "./../index.html"; 
+              localStorage.removeItem("authToken");
+            }
+        });
     });
 });

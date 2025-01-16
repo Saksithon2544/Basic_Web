@@ -88,6 +88,15 @@ a {
   font-size: 1.25rem;
   color: var(--white-color);
 }
+
+.nav_logo-icon-custom-icon {
+  font-size: 1.25rem;
+  color: var(--white-color);
+  width: 25px; 
+  height: 25px;
+  border: 2px solid white;  
+  border-radius: 5px; 
+}
 .nav_logo-name {
   color: var(--white-color);
   font-weight: 700;
