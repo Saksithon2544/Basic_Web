@@ -63,43 +63,32 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     }
 });
 
-
 document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.getElementById("loginForm");
     const usernameField = document.getElementById("yourUsername");
     const rememberMeCheckbox = document.getElementById("rememberMe");
 
-    // โหลด username จาก Local Storage
+    // โหลด username จาก Local Storage เมื่อเปิดหน้า
     const savedUsername = localStorage.getItem("rememberedUsername");
     if (savedUsername) {
         usernameField.value = savedUsername;
         rememberMeCheckbox.checked = true;
     }
 
-    // เมื่อกด Submit ฟอร์ม
-    loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        const username = usernameField.value.trim();
+    // เมื่อมีการคลิก Checkbox "จดจำฉัน"
+    rememberMeCheckbox.addEventListener("change", () => {
         if (rememberMeCheckbox.checked) {
-            localStorage.setItem("rememberedUsername", username);
+            // บันทึก username ลงใน Local Storage
+            localStorage.setItem("rememberedUsername", usernameField.value.trim());
         } else {
+            // ลบ username จาก Local Storage
             localStorage.removeItem("rememberedUsername");
         }
+    });
 
-        // ตรวจสอบ username และ password
-        if (username === "admin" && document.getElementById("yourPassword").value === "12345") {
-            Swal.fire({
-                icon: "success",
-                title: "Login Successful",
-                text: "Welcome back, admin!",
-            });
-        } else if (username !== "" && document.getElementById("yourPassword").value !== "") {
-            Swal.fire({
-                icon: "error",
-                title: "Login Failed",
-                text: "Invalid username or password. Please try again.",
-            });
+    // อัปเดต Local Storage ทันทีเมื่อเปลี่ยนแปลงค่าในช่อง username
+    usernameField.addEventListener("input", () => {
+        if (rememberMeCheckbox.checked) {
+            localStorage.setItem("rememberedUsername", usernameField.value.trim());
         }
     });
 });
