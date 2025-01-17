@@ -217,9 +217,6 @@ function calculateLoan() {
     const customRate = parseFloat(document.getElementById('customRateInput').value);
     const downPayment = parseFloat(document.getElementById('downPaymentInput').value) || 0;
 
-    // ค่าคงที่ VAT
-    const VAT_RATE = 0.07; // 7%
-
     // Validate inputs
     if (!loanAmountInput.value || loanAmount <= 0 || loanAmount > 500000) {
         Swal.fire({
@@ -265,6 +262,10 @@ function calculateLoan() {
         });
         return;
     }
+
+
+    // ค่าคงที่ VAT
+    const VAT_RATE = 0.07; // 7%
 
     // Default interest rate
     let interestRate;
