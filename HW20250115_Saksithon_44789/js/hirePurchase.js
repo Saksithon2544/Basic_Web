@@ -87,6 +87,9 @@ function calculateLoan() {
     if (loanType === 'custom') {
         interestRate = customRate; // Use custom rate if selected
     }
+    if (loanType === 'personal') {
+        interestRate = 24; // Use 24% interest rate for personal loan
+    }
 
     // Calculate loan details
     const principal = loanAmount - downPayment; // Principal after down payment
@@ -102,7 +105,7 @@ function calculateLoan() {
                         ค่างวดรายเดือน: ${monthlyInstallment.toLocaleString('th-TH',{ minimumFractionDigits: 2, maximumFractionDigits: 2 })} บาท`;
 
     document.getElementById('dialogContent').innerHTML = resultText;
-    
+
     document.getElementById('dialogResult').style.display = 'flex';
 
       // Add event listener for the recalculate button
