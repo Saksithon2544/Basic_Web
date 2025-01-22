@@ -82,7 +82,7 @@
 
         // ฟังก์ชันในการดึงข้อมูลจาก API
         async function getCities() {
-            const url = 'https://api.airvisual.com/v2/cities?state=Bangkok&country=Thailand&key=506bdcf3-c6ea-4298-a32b-38f7ac352125'; // URL ของ API
+            const url = `${BASE_URL}cities?state=Bangkok&country=Thailand&key=${API_KEY}`; // URL ของ API
 
             try {
                 const response = await fetch(url);
