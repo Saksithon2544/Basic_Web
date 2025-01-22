@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คุณภาพอากาศของกรุงเทพฯ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-header {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .table-container {
+            margin-top: 20px;
+        }
+
+        .alert {
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .good {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .moderate {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .unhealthy {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                แดชบอร์ดคุณภาพอากาศกรุงเทพมหานคร
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="district-select" class="form-label">เลือกเขต</label>
+                    <select class="form-select" id="district-select">
+                        <option value="">กรุณาเลือกเขต</option>
+                    </select>
+                </div>
+                <div id="aqi-alert" class="alert"></div>
+                <table class="table table-bordered table-hover">
+                    <thead class="table-primary text-center">
+                        <tr>
+                            <th>เขต</th>
+                            <th>ดัชนี AQI</th>
+                            <th>PM2.5 (µg/m³)</th>
+                            <th>PM10 (µg/m³)</th>
+                            <th>อุณหภูมิ (°C)</th>
+                            <th>ความชื้น (%)</th>
+                            <th>ความเร็วลม (กม./ชม.)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-table">
+                        <tr>
+                            <td colspan="7" class="text-center">กรุณาเลือกเขตเพื่อแสดงข้อมูล</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const API_KEY = "506bdcf3-c6ea-4298-a32b-38f7ac352125";
+        const BASE_URL = "https://api.airvisual.com/v2/";
+
+        // ฟังก์ชันในการดึงข้อมูลจาก API
+        async function getCities() {
+            const url = 'https://api.airvisual.com/v2/cities?state=Bangkok&country=Thailand&key=506bdcf3-c6ea-4298-a32b-38f7ac352125'; // URL ของ API
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.status === 'success' && data.data) {
+                    const cities = data.data.map(item => item.city); // ดึงชื่อเมืองจาก API
+                    updateCitySelect(cities); // อัพเดต dropdown ด้วยชื่อเมือง
+                } else {
+                    console.error('ไม่สามารถดึงข้อมูลเมืองได้');
+                }
+            } catch (error) {
+                console.error('เกิดข้อผิดพลาดในการดึงข้อมูล API:', error);
+            }
+        }
+
+        // ฟังก์ชันในการอัพเดต dropdown ด้วยข้อมูลเมือง
+        function updateCitySelect(cities) {
+            const citySelect = document.getElementById('district-select');
+            cities.forEach(city => {
+                const option = document.createElement('option');
+                option.value = city;
+                option.textContent = city;
+                citySelect.appendChild(option);
+            });
+        }
+
+        // ฟังก์ชันในการคำนวณ PM2.5 และ PM10 จาก AQI
+        function calculatePM(aqi, type) {
+            let pm = 0;
+
+            if (type === 'pm25') {
+                if (aqi <= 50) pm = aqi * (12 / 50);
+                else if (aqi <= 100) pm = 12 + (aqi - 50) * (23.4 / 50);
+                else if (aqi <= 150) pm = 35.5 + (aqi - 100) * (19.9 / 50);
+                else if (aqi <= 200) pm = 55.5 + (aqi - 150) * (94.9 / 50);
+                else if (aqi <= 300) pm = 150.5 + (aqi - 200) * (99.9 / 100);
+                else pm = 250.5 + (aqi - 300) * (249.9 / 200);
+            } else if (type === 'pm10') {
+                if (aqi <= 50) pm = aqi * (54 / 50);
+                else if (aqi <= 100) pm = 54 + (aqi - 50) * (100 / 50);
+                else if (aqi <= 150) pm = 154 + (aqi - 100) * (100 / 50);
+                else if (aqi <= 200) pm = 254 + (aqi - 150) * (100 / 50);
+                else if (aqi <= 300) pm = 354 + (aqi - 200) * (70 / 100);
+                else pm = 425 + (aqi - 300) * (179 / 200);
+            }
+
+            return pm.toFixed(2);
+        }
+
+        // เรียกใช้ฟังก์ชันเพื่อดึงข้อมูลเมืองจาก API
+        getCities();
+
+        // เมื่อเลือกเขต จะดึงข้อมูลจาก API
+        document.getElementById('district-select').addEventListener('change', async function () {
+            try {
+                const district = this.value;
+                if (district) {
+                    const city = district; // ใช้ชื่อเขตเป็นชื่อเมือง
+                    const state = 'Bangkok'; // ใช้ค่า "Bangkok" สำหรับรัฐ
+                    const country = 'Thailand'; // ใช้ค่า "Thailand" สำหรับประเทศ
+
+                    // รอการดึงข้อมูลจาก API โดยใช้ async-await
+                    const response = await fetch(`${BASE_URL}city?city=${city}&state=${state}&country=${country}&key=${API_KEY}`);
+                    const data = await response.json();
+
+                    if (!data || !data.data) {
+                        throw new Error("ข้อมูลไม่พบ");
+                    }
+
+                    const airQuality = data.data.current.pollution;
+                    const weather = data.data.current.weather;
+
+                    const aqi = airQuality ? airQuality.aqius : 'ข้อมูลไม่พบ';
+                    const pm25 = calculatePM(aqi, 'pm25');
+                    const pm10 = calculatePM(aqi, 'pm10');
+                    const temp = weather ? weather.tp : 'ข้อมูลไม่พบ';
+                    const humidity = weather ? weather.hu : 'ข้อมูลไม่พบ';
+                    const wind = weather ? weather.ws : 'ข้อมูลไม่พบ';
+
+                    let aqiClass = '';
+                    if (aqi <= 50) aqiClass = 'good';
+                    else if (aqi <= 100) aqiClass = 'moderate';
+                    else aqiClass = 'unhealthy';
+
+                    // เปลี่ยน class และข้อความของ alert ให้เหมาะสมกับค่า AQI
+                    document.getElementById('aqi-alert').className = `alert ${aqiClass}`;
+                    document.getElementById('aqi-alert').innerHTML = `คุณภาพอากาศ: AQI = ${aqi} (${aqiClass})`;
+
+                    // แสดงข้อมูลในตาราง
+                    const tableRow = `
+                    <tr>
+                        <td>${district}</td>
+                        <td>${aqi}</td>
+                        <td>${pm25}</td>
+                        <td>${pm10}</td>
+                        <td>${temp}</td>
+                        <td>${humidity}</td>
+                        <td>${wind}</td>
+                    </tr>
+                `;
+                    document.getElementById('data-table').innerHTML = tableRow;
+                } else {
+                    document.getElementById('data-table').innerHTML = `<tr><td colspan="7" class="text-center">กรุณาเลือกเขตเพื่อแสดงข้อมูล</td></tr>`;
+                }
+            } catch (error) {
+                // จัดการข้อผิดพลาดที่เกิดขึ้น
+                console.error('เกิดข้อผิดพลาด:', error);
+                document.getElementById('aqi-alert').className = 'alert alert-danger';
+                document.getElementById('aqi-alert').innerHTML = 'เกิดข้อผิดพลาดในการดึงข้อมูล';
+            }
+        });
+
+    </script>
+</body>
+
+</html>
